@@ -1,0 +1,74 @@
+
+@mixin flexBox($justifyType) {
+    display: flex;
+    align-items: center;
+    justify-content: $justifyType;
+}
+
+.Navbar{
+    position: fixed;
+    top:0;
+    width: 100%;
+    color: var(--primary-white-clr);
+    font-size: 1rem;
+    z-index: 999;
+    background: linear-gradient(to top, 
+                                transparent 0% ,
+                                rgba(0,0,0,0.3) 50%);
+    &.activeScroll{
+        background: var(--primary-dark-clr);
+    }
+    .container{
+        padding: 0rem 3rem;
+        @include flexBox(space-between);
+        height: 4.5rem;
+        &__left{
+            @include flexBox(center);
+            img{
+                height: 10rem;
+                margin-left: -7em; 
+            }
+            span{
+                margin-right: 1.8em;
+                cursor: pointer;
+            }
+        }
+        &__right{
+            @include flexBox(center);
+            img{
+                height: 1.8rem;
+                width: 1.8rem;
+                border-radius: 0.5rem;
+                object-fit: cover;
+                cursor: pointer;
+            }
+            .icon{
+                margin: 0em 0.8em;
+                cursor: pointer;
+            }
+
+            .profile{
+                .options{
+                    display: none;
+                    background-color: var(--primary-dark-clr);
+                    border-radius: 0.5rem;
+                }
+                span{
+                    padding: 0.8em;
+                    cursor: pointer;
+                }
+
+                &:hover{
+                    .options{
+                        display: flex;
+                        flex-direction: column;
+                        position: absolute;
+                    }
+                }
+            }
+        }
+        
+           
+        
+    }
+}

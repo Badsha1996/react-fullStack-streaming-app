@@ -1,0 +1,60 @@
+.Footer{
+    position: relative;
+    margin: 1em;
+    
+    &__container{
+        height: 20rem;
+        width: 100%;
+        margin-top: 1rem;
+        background-color: #0000;
+        color: var(--primary-white-clr);
+        .icons{
+            margin-top: 1.5em;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            .icon{
+                transform: scale(2.1);
+            }
+        }
+        .middle{
+            margin-top: 5em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            span{
+                color: rgb(82, 82, 82);
+            }
+            &__box{
+                margin-top: 1em;
+                span{
+                    padding: 0.5em;
+                    margin: 1em;
+                    border: 0.125rem solid;
+                    color: var(--primary-white-clr);
+                }
+            }
+        }
+        .copyright{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin-top: 5em;
+            font-style: italic;
+            &__icon{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            small{
+                b{
+                    color: rgb(89, 89, 89);
+                }
+            }
+
+        }
+        
+    }
+}

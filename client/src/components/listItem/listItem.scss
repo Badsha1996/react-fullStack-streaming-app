@@ -1,0 +1,68 @@
+.ListItem{
+    height: 20rem;
+    width: 15rem;
+    background-color: var(--primary-dark-clr);
+    margin-right: 0.3em;
+    overflow: hidden;
+    cursor: pointer;
+    color: white;
+    transition: all 1sec ease-in-out;
+    img{
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+    &:hover{
+        height: 21rem;
+        width: 17rem;
+        box-shadow: 0rem 0rem 0.9rem 0rem rgba($color: #424242, $alpha: 0.5);
+        img{
+            height: 10rem;
+        }
+        
+    }
+    .itemInfo{
+        display: flex;
+        flex-direction: column;
+        padding: 0.3em;
+        .icons{
+            display: flex;
+            margin: 0 0 0.5em 0;
+            .icon{
+                border: 0.06rem solid white;
+                border-radius: 50%; 
+                font-size: 1.5rem;
+                margin-right: 0.2em;
+            }
+        }
+        .itemInfoDetail{
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.2em;
+            font-size: 1rem;
+            font-weight: 600;
+            color: grey;
+            .limit{
+                border: 0.06rem solid grey;
+                padding: 0.06em 0.1em;
+                margin: 0 0.6em;
+                font-style: italic;
+                font-weight: 100;
+                font-family: fantasy;
+            }    
+        }
+        .desc{
+            margin-bottom: 0.5em;
+            font-size: 1rem;
+        }
+        .genre{
+            font-size: 1.1rem;
+            text-decoration: underline;
+            color: lightgray;
+        }
+    }
+    
+    
+   
+
+}

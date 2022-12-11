@@ -1,0 +1,38 @@
+.List{
+    width: 100%;
+    margin-top: 0.5em;
+    .listTitle{
+        color: var(--primary-white-clr);
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-left: 3.125rem;
+    }
+    .wrapper{
+        position: relative;
+        .container{
+            display: flex;
+            margin: 0.625rem 0 0 3.125rem;
+            width: max-content;
+            transform: translate(0); 
+            transition: all 1s ease-in-out;
+        }
+        .arrow{
+            top:0;
+            bottom: 0;
+            margin: auto;
+            cursor: pointer;
+            z-index: 999;
+            position: absolute;
+            height: 100%;
+            width: 3.125rem;
+            background-color: rgba(18,18,18,0.5);
+            color: var(--primary-white-clr);
+            &.Left{
+                left:0;
+            }
+            &.Right{
+                right:0;
+            }
+        }
+    }
+}
