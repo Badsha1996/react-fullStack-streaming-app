@@ -1,4 +1,4 @@
-import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined, ThumbUpOutlined } from "@material-ui/icons"
+import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from "@material-ui/icons"
 import "./listItem.scss"
 const ListItem = () => {
   return (
