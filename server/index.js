@@ -11,8 +11,8 @@ main().catch(err => console.log(err))
 
 
 async function main(){
-    mongoose.set("strictQuery", true)
-    await mongoose.connect(process.env.MONGO_URL)
+    mongoose.set("strictQuery", false)
+    await mongoose.connect(process.env.MONGO_URL, {useUnifiedTopology : true})
     .then(()=> console.log("DataBase is running!"))
     .catch(err => console.log(err))
 }
