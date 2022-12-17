@@ -1,0 +1,91 @@
+.News{
+    min-height: 10rem;
+    background-color: var(--primary-dark-clr);
+    margin: 0em 0em  2em 0em;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    color: var(--primary-white-clr);
+    
+    .container{
+        height: 20rem;
+        width: 15%;
+        background-color: #0000;
+        margin: 2em;
+        position: relative;
+        cursor: pointer;
+        box-shadow: 0 0 0.2rem rgba($color: #696969, $alpha: 1.0);
+        &__video{
+            background-color: red;
+            height: 0;
+            width: 0;
+        }
+        span{
+            position: absolute;
+            height: 0%;
+            width: 0%;
+            cursor: pointer;
+            background-color: rgba($color: black, $alpha: 0.25);
+            transition: all 0.3s ease-in-out; 
+            z-index: 5;
+            .play-icon{
+                height: 3rem;
+                width: 3rem;
+                position: relative;
+                .icon{
+                    position: absolute;
+                    transform: scale(0);
+                    height: 100%;
+                    width: 100%;
+                    top: 260%;
+                    left: 150%;
+                    transition: all 0.2s ease-in-out; 
+                }
+            }
+        }
+        &:hover span{
+            height: 100%;
+            width: 100%;
+        }
+
+        &:hover .play-icon .icon{
+            transform: scale(1);
+        }
+
+        &::before{
+            position: absolute;
+            content: "";
+            height: 0rem;
+            width: 0rem;
+            bottom: 0;
+            right: 0;
+            background-color: rgba($color: black, $alpha: 0.5);
+            transition: all 0.3s ease-in-out; 
+            z-index: 2;
+            
+        }
+        &:hover::before{
+            height: 100%;
+            width: 100%;
+        }
+
+        
+        &__card{
+            height: 100%;
+            background-color: rgba($color: black, $alpha: 0.5);
+               
+        }
+    }
+}
+.anime-title{
+    position: relative;
+    top: 1rem;
+    color: var(--primary-white-clr);
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 2rem;
+    
+}
