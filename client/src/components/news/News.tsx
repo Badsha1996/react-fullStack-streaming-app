@@ -1,25 +1,8 @@
 import { YouTube } from "@material-ui/icons";
-import { useEffect, useState } from "react"
 import "./news.scss"
 
-const API_URL = `https://api.jikan.moe/v4/seasons/upcoming`;
 
-const News = () => {
-    const [animeData, setAnimeData] = useState([])
-    const getAnimes = async(_url: any) =>{
-        try {
-            const res  =  await fetch(_url);
-            const data =  await res.json();
-            console.log(data.data);
-            setAnimeData(data.data)
-        } catch (error) {
-            console.log(error);
-        }
-    }
-    useEffect(()=>{
-        getAnimes(API_URL)
-    },[])  
-    
+const News = ({animeData}:{animeData : any}) => { 
   return (
     <>
     <span className="anime-title"><b>Anime this season</b> </span>
@@ -27,14 +10,15 @@ const News = () => {
         
         {
             animeData ?(
-                animeData.map((anime : any,index : number) =>{
+                animeData.map((anime : any,index : number, play : boolean=false) =>{
+                    
                     return (
-                        <>
                         <div className="container" key={index}>
                         
                             <span>
-                                <div className="play-icon">
-                                  <YouTube className="icon"/>
+                                <div className="play-icon" >
+                                
+                                  <YouTube className="icon" />
                                 </div>
 
                             </span>
@@ -43,9 +27,6 @@ const News = () => {
                             </div>
                             <p>{anime.title.slice(0,50)}</p>
                         </div>
-                        
-                        </>
-                        
                     )
                 })
             ):"No Anime for this season"
