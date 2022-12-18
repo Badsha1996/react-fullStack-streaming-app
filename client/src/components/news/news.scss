@@ -8,8 +8,8 @@
     color: var(--primary-white-clr);
     
     .container{
-        height: 20rem;
-        width: 15%;
+        height: 25rem;
+        width: 21%;
         background-color: #0000;
         margin: 2em;
         position: relative;
@@ -37,8 +37,8 @@
                     transform: scale(0);
                     height: 100%;
                     width: 100%;
-                    top: 260%;
-                    left: 150%;
+                    top: 350%;
+                    left: 250%;
                     transition: all 0.2s ease-in-out; 
                 }
             }
@@ -74,6 +74,11 @@
             height: 100%;
             background-color: rgba($color: black, $alpha: 0.5);
                
+        }
+        .ani-title{
+            margin-top: 1em;
+            color: lightgray;
+            font-weight: 500;
         }
     }
 }
