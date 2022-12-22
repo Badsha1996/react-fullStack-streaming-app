@@ -1,17 +1,17 @@
 import { ArrowBackOutlined } from "@material-ui/icons"
 import "./watch.scss"
-import Navbar from "../../components/navbar/Navbar"
 import Footer from "../../components/footer/Footer"
 
 
 const Watch = () => {
   return (
     <div className="Watch">
-      <div className="video-container">
-        <div className="back">
+      <div className="back">
           <ArrowBackOutlined />
           AllAnime
         </div>
+      <div className="video-container">
+        
         <video className="video" controls autoPlay>
           <source src="https://joy.videvo.net/videvo_files/video/premium/partners0263/large_watermarked/BB_c79a7a37-d1b6-47c8-b78a-426f3ee95eac_preview.mp4" type="video/mp4" />
         </video>
@@ -19,7 +19,7 @@ const Watch = () => {
       <div className="info-container">
         <div className="container">
           <div className="main">
-            <div className="col1"><img src="https://wallpapercave.com/wp/wp6779441.jpg" className="model" alt="can't load image"></img></div>
+            <div className="col1"><img src="https://wallpapercave.com/wp/wp6779441.jpg" className="model" alt="box-img"></img></div>
             <div className="col2">
               <h2 className="name">anime</h2>
               <h4 className="name"> shonen</h4><br />

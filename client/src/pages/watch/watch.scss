@@ -2,21 +2,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Secular+One&display=swap');
 .Watch{
     background-color: var(--primary-dark-clr);
+    position: relative;
     .video-container{
         height: 100vh;
         position: relative;
-        .back{
-            position: absolute;
-            display: flex;
-            align-items: center;
-            top: 0.5rem;
-            left: 0.5rem;
-            color: var(--primary-white-clr);
-            z-index: 20;
-            top: 3.5rem;
-            left: 4.5rem;
-            cursor: pointer;
-        }
+        
         .video{
             width: 90%;
             height: 90%;
@@ -77,4 +67,14 @@
           }
           
     }
+    .back{
+      position: absolute;
+      display: flex;
+      align-items: center;
+      top: 1rem;
+      left: 2rem;
+      color: var(--primary-white-clr);
+      z-index: 10;
+      cursor: pointer;
+  }
 }
