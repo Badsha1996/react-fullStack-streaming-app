@@ -6,7 +6,27 @@
     justify-content: space-around;
     flex-wrap: wrap;
     color: var(--primary-white-clr);
-    
+    position: relative;
+    .genre{
+        position: absolute;
+        bottom: 1.3rem;
+        left: 0.5rem;
+    }
+    .top-icons{
+        position: absolute;
+        width: 100%;
+        background:  linear-gradient(to right,
+         rgba(0, 0, 0, 0.5),
+          rgba(0, 0, 0, 0.7));
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        transition: all 0.3s ease-in-out;
+        .top-text{
+            font-size: 0.8rem;
+            
+        }
+    }
     .container{
         height: 25rem;
         width: 21%;
@@ -68,11 +88,18 @@
             height: 100%;
             width: 100%;
         }
+        &:hover .top-icons{
+            transform: scale(0);
+        }
 
         
         &__card{
             height: 100%;
             background-color: rgba($color: black, $alpha: 0.5);
+            .anime-poster{
+                height: 100%;
+                width: 100%;
+            }
                
         }
         .ani-title{
@@ -92,5 +119,6 @@
     justify-content: center;
     font-weight: 500;
     font-size: 2rem;
+    margin-bottom: 1em;
     
 }
