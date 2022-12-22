@@ -6,7 +6,7 @@ import News from "../../components/news/News"
 import { useEffect, useState } from "react"
 import "./home.scss"
 
-const API_URL = `https://api.jikan.moe/v4/seasons/upcoming`;
+const {API_URL} = process.env;
 
 
 const Home = () => {
@@ -22,7 +22,7 @@ const Home = () => {
       }
   }
   useEffect(()=>{
-      getAnimes(API_URL)
+      getAnimes(`${API_URL}`)
   },[]) 
   return (
     <div className="Home">

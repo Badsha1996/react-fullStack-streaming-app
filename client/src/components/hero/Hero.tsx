@@ -25,7 +25,7 @@ const Hero = ({type}:{type:string}) => {
                 </div>
             )
         }
-        <img src="https://wallpapercave.com/wp/wp6779441.jpg" alt="background pic" />
+        <img src="https://wallpapercave.com/wp/wp6779441.jpg" className="hero-img" alt="background pic" />
         <div className="info">
             <img src={Text} alt="" />
             <span className="desc">

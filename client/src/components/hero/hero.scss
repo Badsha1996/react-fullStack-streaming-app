@@ -15,14 +15,19 @@
         color: var(--primary-white-clr);
         display: flex;
         align-items: center;
-        z-index: 999;
+        span{
+            margin-top: 1em;
+        }
         select{
             background: var(--primary-dark-clr);
             border: 0.05rem solid var(--primary-white-clr);
             color: var(--primary-white-clr);
+            margin-top: 1.3em;
             margin-left: 1em;
             cursor: pointer;
             padding: 0.3em;
+            z-index: 999;
+
         }
     }
     .info{
