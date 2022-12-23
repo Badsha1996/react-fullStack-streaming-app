@@ -5,8 +5,7 @@ import Navbar from "../../components/navbar/Navbar"
 import News from "../../components/news/News"
 import { useEffect, useState } from "react"
 import "./home.scss"
-
-const {API_URL} = process.env;
+import AnimatedCard from "../../components/animated-card/AnimatedCard"
 
 
 const Home = () => {
@@ -22,7 +21,7 @@ const Home = () => {
       }
   }
   useEffect(()=>{
-      getAnimes(`${API_URL}`)
+      getAnimes(process.env.REACT_APP_SECRET_NAME)
   },[]) 
   return (
     <div className="Home">
@@ -30,6 +29,7 @@ const Home = () => {
         <Hero type="movie"/> 
         <List/>
         <News animeData={animeData}/>
+        <AnimatedCard animeData={animeData}/>
         <Footer/>
     </div>
   )
