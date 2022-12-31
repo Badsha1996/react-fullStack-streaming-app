@@ -11,9 +11,11 @@ const HumburgerMenu = () => {
     setClick(!click)
   }
 
+  const listItems = ["About", "Home", "MyAnimeList", "profile", "Latest"]
   return (
-    <div className="Humburger" onClick={handleClick}>
-      <label htmlFor="nav-menu-button" className="MenuLabel">
+
+    <div className="Humburger" >
+      <label htmlFor="nav-menu-button" className="MenuLabel" onClick={handleClick}>
         <span className={!click ? "MenuLabel--icon" : "MenuLabel--icon clicked"}>&nbsp;</span>
       </label>
 
@@ -21,29 +23,18 @@ const HumburgerMenu = () => {
 
       <nav className={!click ? "navigation" : "navigation clicked"}>
         <ul className="list">
-          <li className="list--items">
-            <a href="#" className="list--items__link" onClick={handleClick}>
-              MAL
-            </a>
-          </li>
+          {
+            listItems.map((item, index) => {
+              return (
+                <li className="list--items" key={index}>
+                  <a href="#" className="list--items__link" onClick={handleClick}>
+                    {item}
+                  </a>
+                </li>
+              )
+            })
+          }
 
-          <li className="list--items">
-          <a href="#" className="list--items__link" onClick={handleClick}>
-              MAL
-            </a>
-          </li>
-
-          <li className="list--items">
-          <a href="#" className="list--items__link" onClick={handleClick}>
-              MAL
-            </a>
-          </li>
-
-          <li className="list--items">
-          <a href="#" className="list--items__link" onClick={handleClick}>
-              MAL
-            </a>
-          </li>
         </ul>
 
       </nav>
