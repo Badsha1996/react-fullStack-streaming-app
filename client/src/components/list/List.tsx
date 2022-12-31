@@ -3,7 +3,7 @@ import { MutableRefObject, useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.scss"
 
-const List = () => {
+const List = ({list} :{list : any}) => {
     const [cardNumber , setCardNumber] = useState(0);
 
     const listRef = useRef<HTMLDivElement>() 
@@ -42,23 +42,18 @@ const List = () => {
     }
     return(
         <div className="List">
-            <span className="listTitle">Last watching</span>
+            <span className="listTitle">{list.title}</span>
             <div className="wrapper">
                 <ArrowBackIosOutlined className="arrow Left" 
                 onClick={()=>handleClick("left")}
                 onDoubleClick={(e)=>e.preventDefault()}
                 />
                 <div className="container" ref={(listRef as MutableRefObject<HTMLDivElement>)}>
-                    <ListItem/> 
-                    <ListItem/> 
-                    <ListItem/> 
-                    <ListItem/> 
-                    <ListItem/> 
-                    <ListItem/> 
-                    <ListItem/>
-                    <ListItem/>
-                    <ListItem/>
-                    <ListItem/>
+                    {
+                        list.content.map((item :any, i:any)=>(
+                            <ListItem key={i} index={i} item={item}/>
+                        ))
+                    }
                     
                 </div>
                 <ArrowForwardIosOutlined className="arrow Right" 

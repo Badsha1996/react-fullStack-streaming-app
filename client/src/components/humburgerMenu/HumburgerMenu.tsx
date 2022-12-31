@@ -1,6 +1,6 @@
 import { useState } from "react"
 import "./humburgerMenu.scss"
-
+import { Link } from "react-router-dom";
 
 
 
@@ -23,17 +23,41 @@ const HumburgerMenu = () => {
 
       <nav className={!click ? "navigation" : "navigation clicked"}>
         <ul className="list">
-          {
-            listItems.map((item, index) => {
-              return (
-                <li className="list--items" key={index}>
-                  <a href="#" className="list--items__link" onClick={handleClick}>
-                    {item}
-                  </a>
-                </li>
-              )
-            })
-          }
+          <li className="list--items">
+            <Link className="list--items__link" onClick={handleClick} to={"/"}>
+              Home
+            </Link>
+          </li>
+          <li className="list--items">
+            <Link className="list--items__link" onClick={handleClick} to={"/movies"}>
+              Movies
+            </Link>
+          </li>
+
+          <li className="list--items">
+            <Link className="list--items__link" onClick={handleClick} to={"/series"}>
+              Series
+            </Link>
+          </li>
+
+          <li className="list--items">
+            <Link className="list--items__link" onClick={handleClick} to={"/"}>
+              About
+            </Link>
+          </li>
+
+          <li className="list--items">
+            <Link className="list--items__link" onClick={handleClick} to={"/"}>
+              AniList
+            </Link>
+          </li>
+
+          <li className="list--items">
+            <Link className="list--items__link" onClick={handleClick} to={"/"}>
+              New and Popular
+            </Link>
+          </li>
+
 
         </ul>
 

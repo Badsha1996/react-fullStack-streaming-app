@@ -1,30 +1,58 @@
 import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from "@material-ui/icons"
 import "./listItem.scss"
-const ListItem = () => {
+import { useEffect, useState } from "react"
+import axios from "axios"
+const ListItem = ({ index, item }: { index: number, item: any }) => {
+  const [movie, setMovie] = useState({
+    img: "",
+    Agelimit: "",
+    duration: "",
+    desc: "",
+    year: "",
+    genre: ""
+  }) // empty-obj
+  const getMovies = async () => {
+    try {
+      const res = await axios.get("/movies/find/" + item,
+        {
+          headers: {
+            token: "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MjQ2MjI0MCwiZXhwIjoxNjcyNzIxNDQwfQ.eRc0zcjj5Yz38gKSR6RrsTEnGfYLK0E6ZdiKJGW4ZdA"
+          }
+        }
+      )
+      setMovie(res.data)
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
+  useEffect(() => {
+    getMovies()
+  }, [item])
+
   return (
     <div className="ListItem" >
-      <img src="https://www.cnet.com/a/img/resize/0fce65d01d29f4a2722b65737954488681c4c058/hub/2021/05/03/bd37964d-fe5c-4574-9df3-1986e0bf5050/demon-slayer-mugen-train-1239731.jpg?auto=webp&fit=crop&height=1200&width=1200" alt="anime" />
-    <div className="itemInfo">
-      <div className="icons">
-        <PlayArrow className="icon"/>
-        <Add className="icon"/>
-        <ThumbUpAltOutlined className="icon"/>
-        <ThumbDownOutlined className="icon"/>
-      </div>
-      <div className="itemInfoDetail">
-        <span>2 hours 3 minutes</span>
-        <span className="limit">18+</span>
-        <span>2019</span>
-      </div>
-      <div className="desc">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus quod officia, molestias laudantium similique totam quibusdam.
-      </div>
-      <div className="genre">
-        Shonen
+      <img src={movie.img} alt="anime" />
+      <div className="itemInfo">
+        <div className="icons">
+          <PlayArrow className="icon" />
+          <Add className="icon" />
+          <ThumbUpAltOutlined className="icon" />
+          <ThumbDownOutlined className="icon" />
+        </div>
+        <div className="itemInfoDetail">
+          <span>{movie.duration}</span>
+          <span className="limit">{movie.Agelimit}</span>
+          <span>{movie.year}</span>
+        </div>
+        <div className="desc">
+          {movie.desc}
+        </div>
+        <div className="genre">
+          {movie.genre}
+        </div>
       </div>
     </div>
-    </div>
-    
   )
 }
 

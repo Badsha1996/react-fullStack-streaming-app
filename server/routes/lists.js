@@ -34,6 +34,7 @@ router.delete("/:id", verify ,async(req, res)=>{
 
 // FIND ALL MOVIES 
 router.get("/", verify ,async(req, res)=>{
+    // localhost:8800/api/lists?type=movie&genre=action
     const typeQuery = req.query.type;
     const genreQuery = req.query.genre;
     let list = [] ;

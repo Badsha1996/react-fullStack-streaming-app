@@ -9,6 +9,7 @@ const MovieSchema = new mongoose.Schema({
     imgTitle : {type : String},
     imgSmall : {type : String},
     trailer : {type : String},
+    duration : {type:String, default : ""},
     video : {type : String},
     year : {type : Number},
     Agelimit : {type : Number},

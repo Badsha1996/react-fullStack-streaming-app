@@ -8,7 +8,7 @@ const Hero = ({type}:{type:string}) => {
         {
             type && (
                 <div className="category">
-                    <span>{type === "movie" ? "Movie" : "Series"}</span>
+                    <span>{type === "movies" ? "Movies" : "Series"}</span>
                     <select name="genre" id="genre">
                         <option>Genres</option>
                         <option value="adventure">Adventure</option>
