@@ -1,0 +1,142 @@
+.MenuLabel {
+    position: fixed;
+    top: 0rem;
+    left: 3.1rem;
+    border-radius: 50%;
+    height: 4rem;
+    width: 4rem;
+    cursor: pointer;
+    z-index: 1000;
+    text-align: center;
+    &--icon {
+        position: relative;
+        background-color: var(--primary-white-clr);
+        width: 2.3rem;
+        height: 0.2rem;
+        display: inline-block;
+        border-radius: 10rem;
+        margin-top: 2rem;
+        transition: all 0.3s;
+        &.clicked {
+            background-color: transparent;
+        }
+        &::before,
+        &::after {
+            content: "";
+            background-color: var(--primary-white-clr);
+            width: 2.3rem;
+            border-radius: 10rem;
+            height: 0.2rem;
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            transition: all 0.3s;
+        }
+
+        &::before {
+            top: -0.6rem;
+            transform: rotate(0);
+            &.clicked{
+                top: 0;
+                transform: rotate(-135deg);
+            }
+
+        }
+
+        &::after {
+            top: 0.6rem;
+            transform: rotate(0);
+
+        }
+
+        &.clicked::before{
+            top: 0;
+            transform: rotate(-135deg);
+        }
+
+        &.clicked::after{
+            top: 0;
+            transform: rotate(135deg);
+        }
+
+
+    }
+    &:hover &--icon::before {
+        top: 0;
+        &.clicked{
+            top: -0.7rem;
+        }
+        
+    }
+    &:hover &--icon::after {
+        top: 0;
+        &.clicked{
+            top: 0.7rem;
+        }
+        
+    }
+
+
+}
+.navBackground {
+    position: fixed;
+    top: 1rem;
+    left: 3.1rem;
+    background-image: radial-gradient(#000, var(--primary-dark-clr));
+    height: 3rem;
+    width: 3rem;
+    border-radius: 50%;
+    z-index: 600;
+    transform: scale(0);
+    transition: transform 0.8s;
+    &.clicked {
+        transform: scale(60);
+    }
+}
+.navigation{
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 600;
+    width: 0;
+    opacity: 0;
+    transition: all 0.8s;
+    &.clicked{
+        width: 100%;
+        opacity: 1;
+    }
+
+    .list{
+        position: absolute;
+        list-style: none;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        width: 100%;
+        &--items{
+            &__link{
+                display: inline-block;
+                font-size: 2rem;
+                font-weight: 500;
+                text-decoration: none;
+                color: var(--primary-white-clr);
+                padding: 1em 5em;
+                background: linear-gradient(120deg, 
+                    transparent 0%,
+                    transparent 50%,
+                    #fff 50%
+                );
+                background-size: 250%;
+                transition: all 0.4s;
+                cursor: pointer;
+                &:hover,
+                &:active{
+                    background-position: 100%;
+                    color: var(--primary-clr);
+                }
+            }
+        }
+    }
+}

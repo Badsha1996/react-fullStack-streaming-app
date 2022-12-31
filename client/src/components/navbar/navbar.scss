@@ -24,14 +24,12 @@
         height: 4.5rem;
         &__left{
             @include flexBox(center);
-            img{
+            &--logo{
+                position: relative;
                 height: 10rem;
-                margin-left: -7em; 
+                left: 1rem
             }
-            span{
-                margin-right: 1.8em;
-                cursor: pointer;
-            }
+            
         }
         &__right{
             @include flexBox(center);

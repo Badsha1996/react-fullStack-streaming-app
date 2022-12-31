@@ -2,6 +2,7 @@ import { ArrowDropDown, Notifications, Search } from "@material-ui/icons"
 import "./navbar.scss"
 import logo from "../../assets/logo.png"
 import { useState } from "react"
+import HumburgerMenu from "../humburgerMenu/HumburgerMenu"
 
 
 
@@ -17,11 +18,8 @@ const Navbar = () => {
     <div className={scrolledStatus ? "Navbar activeScroll" : "Navbar"}>
         <div className="container">
             <div className="container__left">
-               <img src={logo} alt="logo" /> 
-                <span>Home</span>
-                <span>Animes</span>
-                <span>New and Popular</span>
-                <span>MyAnimeList</span>
+              <HumburgerMenu/>
+               <img src={logo} alt="logo" className="container__left--logo" />   
             </div>
 
             <div className="container__right">
