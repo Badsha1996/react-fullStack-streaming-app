@@ -1,9 +1,12 @@
 import { ArrowBackOutlined } from "@material-ui/icons"
 import "./watch.scss"
 import Footer from "../../components/footer/Footer"
+import { useLocation } from "react-router-dom"
 
 
 const Watch = () => {
+  const location = useLocation()
+  const movie = location.state?.movie;
   return (
     <div className="Watch">
       <div className="back">
@@ -11,10 +14,17 @@ const Watch = () => {
         AllAnime
       </div>
       <div className="video-container">
+        <iframe
+          className="video"
+          src={movie ? movie.video : "No video availabe"}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+          title="Embedded "
+        />
 
-        <video className="video" controls autoPlay>
-          <source src="https://joy.videvo.net/videvo_files/video/premium/partners0263/large_watermarked/BB_c79a7a37-d1b6-47c8-b78a-426f3ee95eac_preview.mp4" type="video/mp4" />
-        </video>
+        {/* <video className="video" controls autoPlay>
+          <source src={movie ? movie.video : "No video availabe"} type="video/mp4" />
+        </video> */}
       </div>
       <div className="info-container">
         <div className="container">

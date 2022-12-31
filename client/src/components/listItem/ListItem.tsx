@@ -2,6 +2,7 @@ import { Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined } from "@material
 import "./listItem.scss"
 import { useEffect, useState } from "react"
 import axios from "axios"
+import { Link } from "react-router-dom"
 const ListItem = ({ index, item }: { index: number, item: any }) => {
   const [movie, setMovie] = useState({
     img: "",
@@ -32,11 +33,13 @@ const ListItem = ({ index, item }: { index: number, item: any }) => {
   }, [item])
 
   return (
+    
     <div className="ListItem" >
       <img src={movie.img} alt="anime" />
       <div className="itemInfo">
         <div className="icons">
-          <PlayArrow className="icon" />
+          <Link to="/watch" state={{ movie : movie }} >
+          <PlayArrow className="icon" /></Link>
           <Add className="icon" />
           <ThumbUpAltOutlined className="icon" />
           <ThumbDownOutlined className="icon" />
