@@ -110,19 +110,20 @@
         position: absolute;
         list-style: none;
         height: 100%;
-        width: 100%;
+        width: 133%;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
         flex-direction: column;
+        overflow: hidden;
         top: 2rem;
-        left: 2rem;
         text-align: center;
         &--items {
+           padding: 0 15vw;
             &__link {
                 display: inline-block;
                 font-size: 1.2rem;
                 font-weight: 500;
+                margin: 1em 0;
                 text-decoration: none;
                 color: var(--primary-white-clr);
                 transition: all 0.3s;
@@ -131,6 +132,9 @@
                 &:active {
                     color: var(--primary-clr);
                 }
+            }
+            &:active {
+                background-color: #0000;
             }
         }
     }
