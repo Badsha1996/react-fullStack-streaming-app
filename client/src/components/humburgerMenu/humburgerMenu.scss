@@ -82,7 +82,7 @@
     position: fixed;
     top: 0;
     left: 0;
-    background-image: radial-gradient(#000, var(--primary-dark-clr));
+    background-image: radial-gradient(rgba(0, 0, 0,0.1),rgba(0, 0, 0,0.9) );
     height: 0;
     width: 0;
     z-index: 600;
