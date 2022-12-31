@@ -11,22 +11,23 @@ const ListItem = ({ index, item }: { index: number, item: any }) => {
     year: "",
     genre: ""
   }) // empty-obj
-  const getMovies = async () => {
-    try {
-      const res = await axios.get("/movies/find/" + item,
-        {
-          headers: {
-            token: "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MjQ2MjI0MCwiZXhwIjoxNjcyNzIxNDQwfQ.eRc0zcjj5Yz38gKSR6RrsTEnGfYLK0E6ZdiKJGW4ZdA"
-          }
-        }
-      )
-      setMovie(res.data)
-    } catch (err) {
-      console.log(err)
-    }
-  }
+  
 
   useEffect(() => {
+    const getMovies = async () => {
+      try {
+        const res = await axios.get("/movies/find/" + item,
+          {
+            headers: {
+              token: "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MjQ2MjI0MCwiZXhwIjoxNjcyNzIxNDQwfQ.eRc0zcjj5Yz38gKSR6RrsTEnGfYLK0E6ZdiKJGW4ZdA"
+            }
+          }
+        )
+        setMovie(res.data)
+      } catch (err) {
+        console.log(err)
+      }
+    }
     getMovies()
   }, [item])
 
@@ -46,7 +47,7 @@ const ListItem = ({ index, item }: { index: number, item: any }) => {
           <span>{movie.year}</span>
         </div>
         <div className="desc">
-          {movie.desc}
+          {movie.desc.slice(0,100) +"..."}
         </div>
         <div className="genre">
           {movie.genre}

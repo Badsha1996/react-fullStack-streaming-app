@@ -115,13 +115,18 @@
         align-items: center;
         flex-direction: column;
         overflow: hidden;
+        
         top: 2rem;
         text-align: center;
         &--items {
-           padding: 0 15vw;
+           margin-bottom: 0.6em;
+           padding: 0 80%;
+           background-color: transparent;
             &__link {
                 display: inline-block;
                 font-size: 1.2rem;
+                
+                background-size: 100%;
                 font-weight: 500;
                 margin: 1em 0;
                 text-decoration: none;
@@ -132,9 +137,18 @@
                 &:active {
                     color: var(--primary-clr);
                 }
+
+            }
+            &:hover,
+            &:active{
+                background-color: rgb(22, 22, 22);
+                color: lightgray;
+            }
+            &:hover .list--items__link{
+                color: var(--primary-clr);
             }
             &:active {
-                background-color: #0000;
+                background-color: rgb(22, 22, 22);
             }
         }
     }
