@@ -28,17 +28,18 @@ const Home = ({type} : {type: string}) => {
         const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
         {
             headers : {
-                token : "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MjQ2MjI0MCwiZXhwIjoxNjcyNzIxNDQwfQ.eRc0zcjj5Yz38gKSR6RrsTEnGfYLK0E6ZdiKJGW4ZdA"
+                token : "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MzA1NjQ4MywiZXhwIjoxNjczMzE1NjgzfQ.mBBIBUQqr0hx6p9dKFhC45jbVD2x320D0fI8OdPXyw0"
             }
         }
         )
         setLists(res.data)
+        getAnimes(process.env.REACT_APP_SECRET_NAME)
     } catch (error) {
         console.log(error);
     }
 }
   useEffect(()=>{
-      getAnimes(process.env.REACT_APP_SECRET_NAME)
+      
       getRandomLists()
   },[type, genre]) 
   return (

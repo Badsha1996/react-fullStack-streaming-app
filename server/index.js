@@ -5,10 +5,18 @@ const authRoute =  require("./routes/auth")
 const usersRoute = require("./routes/users")
 const moviesRoute = require("./routes/movies")
 const listsRoute = require("./routes/lists")
+const cors = require("cors");
+
+
+
 
 dotenv.config();
 const app = express();
-
+app.use(cors({
+    origin: true,
+    methods : ["GET", "POST","DELETE","UPDATE"],
+    credentials: true
+}))
 
 main().catch(err => console.log(err))
 
