@@ -1,8 +1,33 @@
 import { InfoOutlined, PlayArrow } from "@material-ui/icons"
 import "./hero.scss"
 import Text from "../../assets/Text.png"
+import { useEffect, useState } from "react"
+import axios from "axios"
 
 const Hero = ({type}:{type:string}) => {
+    const [content, setContent] = useState({
+        img : "",
+        imgTitle : "",
+        desc : ""
+    });
+
+    const getRandomContent = async ()=>{
+        try {
+            const res =  await axios.get(`/movies/random?type=${type}` , 
+            {
+                headers: {
+                  token: "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MzA1NjQ4MywiZXhwIjoxNjczMzE1NjgzfQ.mBBIBUQqr0hx6p9dKFhC45jbVD2x320D0fI8OdPXyw0"
+                }
+              }
+            )
+            setContent(res.data[0])
+        } catch (error) {
+            console.log(error)
+        }
+    }
+    useEffect(()=>{
+        getRandomContent()
+    }, [type])
   return (
     <div className="Hero">
         {
@@ -25,11 +50,11 @@ const Hero = ({type}:{type:string}) => {
                 </div>
             )
         }
-        <img src="https://wallpapercave.com/wp/wp6779441.jpg" className="hero-img" alt="background pic" />
+        <img src={content.img} className="hero-img" alt="background pic" />
         <div className="info">
-            <img src={Text} alt="" />
+            <img src={content.imgTitle} alt="" />
             <span className="desc">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae doloribus debitis, obcaecati provident quam consectetur in reprehenderit laborum cupiditate laboriosam omnis, vel vitae quod eveniet voluptate sint et aliquid! Quia?
+                {content.desc}
             </span>
             <div className="buttons">
                 <button className="play">
