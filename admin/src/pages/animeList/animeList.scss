@@ -1,13 +1,13 @@
-.productList{
+.animeList{
     flex: 4;
 }
 
-.productListItem{
+.animeListItem{
     display: flex;
     align-items: center;
 }
 
-.productListImg {
+.animeListImg {
     width: 32px;
     height: 32px;
     border-radius: 50%;
@@ -15,7 +15,7 @@
     margin-right: 10px;
   }
 
-.productListEdit{
+.animeListEdit{
     border: none;
     border-radius: 10px;
     padding: 5px 10px;
@@ -25,7 +25,7 @@
     margin-right: 20px;
 }
 
-.productListDelete{
+.animeListDelete{
     color: red;
     cursor: pointer;
 }

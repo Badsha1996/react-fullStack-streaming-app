@@ -6,12 +6,12 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/productList/ProductList";
-import Product from "./pages/product/Product";
-import NewProduct from "./pages/newProduct/NewProduct";
+import ProductList from "./pages/animeList/AnimeList";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
+import Anime from "./pages/anime/Anime";
+import NewAnime from "./pages/newAnime/NewAnime";
 
 
 function App() {
@@ -44,10 +44,10 @@ function App() {
                         <ProductList/>
                     </Route>
                     <Route path="/product/:productId">
-                        <Product/>
+                        <Anime/>
                     </Route>
                     <Route path="/newproduct">
-                        <NewProduct/>
+                        <NewAnime/>
                     </Route>
                     </div>
                     </>}
