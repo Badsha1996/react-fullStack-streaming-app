@@ -1,4 +1,4 @@
-import "./sidebar.css";
+import "./sidebar.scss";
 import {
   LineStyle,
   Timeline,
@@ -12,6 +12,7 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
+  PlayCircleFilledOutlined,
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
@@ -32,10 +33,7 @@ export default function Sidebar() {
               <Timeline className="sidebarIcon" />
               Analytics
             </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Sales
-            </li>
+            
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -47,20 +45,13 @@ export default function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to="/products" className="link">
+            <Link to="/movies" className="link">
               <li className="sidebarListItem">
-                <Storefront className="sidebarIcon" />
-                Products
+                <PlayCircleFilledOutlined className="sidebarIcon" />
+                Movies
               </li>
             </Link>
-            <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Transactions
-            </li>
-            <li className="sidebarListItem">
-              <BarChart className="sidebarIcon" />
-              Reports
-            </li>
+            
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -70,14 +61,7 @@ export default function Sidebar() {
               <MailOutline className="sidebarIcon" />
               Mail
             </li>
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Messages
-            </li>
+            
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -87,10 +71,7 @@ export default function Sidebar() {
               <WorkOutline className="sidebarIcon" />
               Manage
             </li>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
-            </li>
+          
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
               Reports

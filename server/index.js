@@ -12,9 +12,11 @@ const cors = require("cors");
 
 dotenv.config();
 const app = express();
+
+// cross-origin 
 app.use(cors({
-    origin: true,
-    methods : ["GET", "POST","DELETE","UPDATE"],
+    origin: "*",
+    methods : ["GET", "POST","DELETE","PUT"],
     credentials: true
 }))
 

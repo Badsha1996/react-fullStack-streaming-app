@@ -28,6 +28,7 @@ const HumburgerMenu = () => {
               Home
             </Link>
           </li>
+        
           <li className="list--items">
             <Link className="list--items__link" onClick={handleClick} to={"/movies"}>
               Movies
