@@ -24,7 +24,7 @@ export default function AnimeList() {
         },
         {
             field: "movie",
-            headerName: "Movie",
+            headerName: "Anime",
             width: 200,
             renderCell: (params) => {
                 return (<div className="animeListItem">

@@ -42,7 +42,7 @@ export default function Sidebar() {
             <Link to="/movies" className="link">
               <li className="sidebarListItem">
                 <PlayCircleFilledOutlined className="sidebarIcon" />
-                Movies
+                Animes
               </li>
             </Link>
             
