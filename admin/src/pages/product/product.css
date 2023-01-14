@@ -8,7 +8,9 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.productInfoKey{
+  margin-right: 2em;
+}
 .productAddButton {
   width: 80px;
   border: none;

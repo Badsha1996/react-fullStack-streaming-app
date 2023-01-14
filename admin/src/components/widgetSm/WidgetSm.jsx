@@ -22,13 +22,13 @@ export default function WidgetSm() {
     }
     getNewUser()
   },[])
-  console.log(newUser)
+ 
   return (
     <div className="widgetSm">
       <span className="widgetSmTitle">New Join Members</span>
       <ul className="widgetSmList">
-        {newUser.map(user=>(
-          <li className="widgetSmListItem">
+        {newUser.map((user,i)=>(
+          <li className="widgetSmListItem" key={i}>
           <img
             src={user.profilePic || "https://wallpapers-clan.com/wp-content/uploads/2022/07/anime-default-pfp-2.jpg"}
             alt=""

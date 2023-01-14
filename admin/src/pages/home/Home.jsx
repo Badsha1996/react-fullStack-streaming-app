@@ -49,7 +49,7 @@ useEffect(() => {
     getState()
 
 }, [MONTHS])
-console.log(userStats)
+
   return (
     <div className="home">
       <FeaturedInfo />
