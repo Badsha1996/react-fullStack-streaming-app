@@ -1,14 +1,13 @@
 import React from "react";
 import "./topbar.scss";
 import logo from "../../assets/logo.png"
-import { NotificationsNone, Language, Settings } from "@material-ui/icons";
 
 export default function Topbar() {
   return (
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-        <img src={logo}  className="logo_img" />
+        <img src={logo} alt="logo" className="logo_img" />
           <span className="logo">Admin</span>
         </div>
         <div className="topRight">

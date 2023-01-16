@@ -22,7 +22,7 @@ export default function Anime() {
               </div>
               <div className="animeInfoBottom">
                   <div className="animeInfoItem">
-                      <span className="animeInfoKey">id: </span>
+                      <span className="animeInfoKey">ID: </span>
                       <span className="animeInfoValue">{movie._id}</span>
                   </div>
                   <div className="animeInfoItem">

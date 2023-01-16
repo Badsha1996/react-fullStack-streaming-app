@@ -46,7 +46,7 @@ function App() {
                     <Route path="/product/:productId">
                         <Anime/>
                     </Route>
-                    <Route path="/newproduct">
+                    <Route path="/newanime">
                         <NewAnime/>
                     </Route>
                     </div>

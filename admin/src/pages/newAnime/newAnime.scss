@@ -1,5 +1,10 @@
 .newAnime {
   flex: 4;
+  .addAnimeTitle{
+    margin-left: 2em;
+    color: #ffff;
+    text-shadow: 1px solid rgba(0, 0, 0, 0.75);
+  }
 }
 
 .addAnimeForm {
@@ -14,20 +19,27 @@
   flex-direction: column;
   margin-bottom: 10px;
   padding: 2em;
+  cursor: pointer;
 }
 
 .addAnimeItem > label {
-  color: gray;
+  color: rgb(0, 0, 0);
   font-weight: 600;
   margin-bottom: 10px;
 }
 
 .addAnimeItem > input {
   padding: 10px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
 }
 
 .addAnimeItem > select {
   padding: 10px;
+  border: none;
+  border-radius: 7px;
+  cursor: pointer;
 }
 
 .addAnimeButton {
@@ -36,7 +48,7 @@
   padding: 7px 10px;
   border: none;
   border-radius: 10px;
-  background-color: darkblue;
+  background-color: rgb(33, 21, 156);
   color: white;
   font-weight: 600;
   cursor: pointer;

@@ -7,6 +7,11 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  .animeTitle{
+    margin-left: 2em;
+    color: #ffff;
+    text-shadow: 1px solid rgba(0, 0, 0, 0.75);
+  }
 }
 .animeInfoKey{
   margin-right: 2em;
@@ -67,6 +72,7 @@
 
 .animeInfoValue {
   font-weight: 300;
+  
 }
 
 .animeBottom {
@@ -88,12 +94,13 @@
 
 .animeFormLeft > label {
   margin-bottom: 10px;
-  color: gray;
+  color: rgb(0, 0, 0);
 }
 
 .animeFormLeft > input {
   margin-bottom: 10px;
   border: none;
+  border-radius: 5px;
   padding: 5px;
   border-bottom: 1px solid gray;
 }

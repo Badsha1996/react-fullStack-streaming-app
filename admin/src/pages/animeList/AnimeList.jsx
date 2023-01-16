@@ -47,7 +47,7 @@ export default function AnimeList() {
             headerName: "Year",
             width: 120
         }, {
-            field: "AgeLimit",
+            field: "Agelimit",
             headerName: "Rated",
             width: 120
         }, {
