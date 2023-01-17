@@ -9,10 +9,11 @@ import {deleteMovies, getMovies} from "../../context/movieContext/apiCalls";
 
 export default function AnimeList() {
     const {movies, dispatch} = useContext(MovieContext)
-
+    
     useEffect(() => {
         getMovies(dispatch)
     }, [dispatch])
+
     const handleDelete = (id) => {
         deleteMovies(id, dispatch)
     };

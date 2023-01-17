@@ -1,7 +1,9 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import "./newAnime.scss";
 import storage from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
+import { createMovies } from "../../context/movieContext/apiCalls";
+import { MovieContext } from "../../context/movieContext/MovieContext";
 
 export default function NewAnime() {
     const [movie, setMovie] = useState({});
@@ -11,7 +13,7 @@ export default function NewAnime() {
     const [trailer, setTrailer] = useState("")
     const [video, setVideo] = useState("");
     const [uploaded, setUploaded] = useState(0);
-
+    const {dispatch} = useContext(MovieContext)
 
     const handleChange = (e) => {
         const value = e.target.value;
@@ -25,8 +27,9 @@ export default function NewAnime() {
             const metadata = {
                 contentType: '*'
             };
+            const fileName = new Date().getTime() + item.label + item.file.name 
             const storageRef = ref(storage, `/items/${
-                item.file.name
+                fileName
             }`);
             const uploadTask = uploadBytesResumable(storageRef, item.file, metadata);
 
@@ -92,7 +95,12 @@ export default function NewAnime() {
             }
         ])
     }
-    console.log(movie)
+    const handleSubmit = (e)=>{
+        e.preventDefault();
+        console.log(movie)
+        createMovies(movie,dispatch)
+
+    }
     return (
         <div className="newAnime">
             <h1 className="addAnimeTitle">New Anime</h1>
@@ -172,7 +180,7 @@ export default function NewAnime() {
                 </div>
                 {
                 uploaded === 5 ? (
-                    <button className="addAnimeButton">Create</button>
+                    <button className="addAnimeButton" onClick={handleSubmit}>Create</button>
                 ) : (
                     <button className="addAnimeButton"
                         onClick={handleUpload}>Upload</button>

@@ -33,7 +33,7 @@ useEffect(() => {
     try {
         const res = await axios.get("/users/stats", {
             headers: {
-                token: "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MzYyNjQ5OSwiZXhwIjoxNjczODg1Njk5fQ.v3Q2ds1UTLIlgheiylAdd61prbPI7D0RssKWXggsuy0"
+                token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }
         })
         const statsList = res.data.sort(function (a,b) {

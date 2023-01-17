@@ -7,10 +7,20 @@ import {
   WorkOutline,
   Report,
   PlayCircleFilledOutlined,
+  AddAPhoto,
 } from "@material-ui/icons";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/authContext/AuthContext";
+import { logOut } from "../../context/authContext/apiCalls";
 
 export default function Sidebar() {
+  const {dispatch} = useContext(AuthContext)
+  const handleLogout =(e)=> {
+    e.preventDefault();
+    logOut(dispatch)
+    window.location.href = '/login'
+  }
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -45,6 +55,12 @@ export default function Sidebar() {
                 Animes
               </li>
             </Link>
+            <Link to="/newanime" className="link">
+              <li className="sidebarListItem">
+                <AddAPhoto  className="sidebarIcon" />
+                Add New Anime
+              </li>
+            </Link>
             
           </ul>
         </div>
@@ -66,9 +82,9 @@ export default function Sidebar() {
               Manage
             </li>
           
-            <li className="sidebarListItem">
-              <Report className="sidebarIcon" />
-              Reports
+            <li className="sidebarListItem" onClick={handleLogout}>
+              <Report className="sidebarIcon"/>
+              Logout
             </li>
           </ul>
         </div>

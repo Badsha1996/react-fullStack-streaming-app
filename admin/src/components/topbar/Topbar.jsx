@@ -1,8 +1,12 @@
 import React from "react";
 import "./topbar.scss";
 import logo from "../../assets/logo.png"
+import { useContext } from "react";
+import { AuthContext } from "../../context/authContext/AuthContext";
 
 export default function Topbar() {
+  const {user} = useContext(AuthContext)
+  console.log(user)
   return (
     <div className="topbar">
       <div className="topbarWrapper">
@@ -11,7 +15,7 @@ export default function Topbar() {
           <span className="logo">Admin</span>
         </div>
         <div className="topRight">
-          <img src="https://cdn.vox-cdn.com/thumbor/xBIBkXiGLcP-kph3pCX61U7RMPY=/0x0:1400x788/1200x800/filters:focal(588x282:812x506)/cdn.vox-cdn.com/uploads/chorus_image/image/70412073/0377c76083423a1414e4001161e0cdffb0b36e1f_760x400.0.png" alt="" className="topAvatar" />
+          <img src={user.profilePic} alt="" className="topAvatar" />
         </div>
       </div>
     </div>
