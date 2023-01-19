@@ -11,7 +11,14 @@ export default function AnimeList() {
     const {movies, dispatch} = useContext(MovieContext)
     
     useEffect(() => {
-        getMovies(dispatch)
+        let controller = new AbortController();
+        try {
+            getMovies(dispatch)
+        } catch (error) {
+            console.log(error)
+        }
+        
+        return () => controller?.abort();
     }, [dispatch])
 
     const handleDelete = (id) => {
@@ -62,7 +69,7 @@ export default function AnimeList() {
             renderCell: (params) => {
                 return (<>
                     <Link to={
-                        {pathname:"/product/" + params.row._id,movie:params.row}
+                        {pathname:"/anime/" + params.row._id,movie:params.row}
                     }>
                         <button className="animeListEdit">Edit</button>
                     </Link>

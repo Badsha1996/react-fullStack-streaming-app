@@ -8,6 +8,7 @@ import {
   PlayCircleFilledOutlined,
   AddAPhoto,
   AddCommentSharp,
+  VerifiedUser,
 } from "@material-ui/icons";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
@@ -34,13 +35,13 @@ export default function Sidebar() {
               Home
             </li>
             </Link>
-
-            <Link to="/lists" className="link">
+            <Link to="/newuser" className="link">
             <li className="sidebarListItem">
-              <List className="sidebarIcon" />
-              Lists
+              <VerifiedUser className="sidebarIcon" />
+              Create New User
             </li>
             </Link>
+            
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -52,7 +53,7 @@ export default function Sidebar() {
                 Users
               </li>
             </Link>
-            <Link to="/movies" className="link">
+            <Link to="/animes" className="link">
               <li className="sidebarListItem">
                 <PlayCircleFilledOutlined className="sidebarIcon" />
                 Animes
@@ -70,13 +71,19 @@ export default function Sidebar() {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Lists</h3>
           <ul className="sidebarList">
-          <Link to="/newlist" className="link">
+          
+            <Link to="/lists" className="link">
+            <li className="sidebarListItem">
+              <List className="sidebarIcon" />
+              Lists
+            </li>
+            </Link>
+            <Link to="/newlist" className="link">
             <li className="sidebarListItem">
               <AddCommentSharp className="sidebarIcon" />
               Add New List
             </li>
             </Link>
-
           </ul>
         </div>
         <div className="sidebarMenu">

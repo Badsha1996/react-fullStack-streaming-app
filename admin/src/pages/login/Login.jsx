@@ -12,7 +12,12 @@ const Login = () => {
     const handleLogin = (e) =>{
         e.preventDefault();
         const user = {email, password}
-        login(user, dispatch)
+        try {
+           login(user, dispatch)
+        } catch (error) {
+          console.error(error)
+          
+        }
     }
 
    

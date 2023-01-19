@@ -14,13 +14,42 @@ export const AuthContextProvider = ({children}) => {
     useEffect(() => {
         localStorage.setItem("user", JSON.stringify(state.user))
     }, [state.user])
-    return (<AuthContext.Provider value={
-        {
-            user: state.user,
-            isFetching: state.isFetching,
-            error: state.error,
-            dispatch
-        }
-    }> {children}</AuthContext.Provider>)
+    return (
+        <AuthContext.Provider value={
+            {
+                user: state.user,
+                isFetching: state.isFetching,
+                error: state.error,
+                dispatch
+            }
+        }>
+            {children}</AuthContext.Provider>
+    )
+
+}
+
+// REGISTER CONTEXT 
+const INITIAL_REGISTER_STATE = {
+    user: null,
+    isFetching: false,
+    error: false
+}
+
+export const RegisterContext = createContext(INITIAL_REGISTER_STATE)
+
+export const RegisterContextProvider = ({children}) => {
+    const [state, dispatch] = useReducer(AuthReducer, INITIAL_REGISTER_STATE)
+
+    return (
+        <RegisterContext.Provider value={
+            {
+                user: state.user,
+                isFetching: state.isFetching,
+                error: state.error,
+                dispatch
+            }
+        }>
+            {children}</RegisterContext.Provider>
+    )
 
 }

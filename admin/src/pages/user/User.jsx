@@ -1,123 +1,116 @@
 import {
-  CalendarToday,
-  LocationSearching,
-  MailOutline,
-  PermIdentity,
-  PhoneAndroid,
-  Publish,
+    CalendarToday,
+    CalendarTodayTwoTone,
+    MailOutline,
+    PermIdentity,
+    Publish
 } from "@material-ui/icons";
-import { Link } from "react-router-dom";
-import "./user.css";
+import {Link, useLocation} from "react-router-dom";
+import "./user.scss";
+import { UserContext } from "../../context/userContext/UserContext";
+import { useContext } from "react";
+import { useState } from "react";
+import { updateUser } from "../../context/userContext/apiCalls";
 
 export default function User() {
-  return (
-    <div className="user">
-      <div className="userTitleContainer">
-        <h1 className="userTitle">Edit User</h1>
-        <Link to="/newUser">
-          <button className="userAddButton">Create</button>
-        </Link>
-      </div>
-      <div className="userContainer">
-        <div className="userShow">
-          <div className="userShowTop">
-            <img
-              src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-              alt=""
-              className="userShowImg"
-            />
-            <div className="userShowTopTitle">
-              <span className="userShowUsername">Anna Becker</span>
-              <span className="userShowUserTitle">Software Engineer</span>
+  const location = useLocation();
+  const users = location.user;
+    const [user, setUser] = useState(users);
+    const {dispatch} = useContext(UserContext);
+    
+    const handleChange = (e) => {
+      const value = e.target.value;
+      setUser({
+          ...user,
+          [e.target.name]: value
+      })
+  }
+
+  const handleUpdate = (e) =>{
+    e.preventDefault();
+    console.log(user)
+    updateUser(user,dispatch)
+    window.location.href = '/users'
+}
+    return (
+        <div className="user">
+            <div className="userTitleContainer">
+                <h1 className="userTitle">Edit User</h1>
+                <Link to="/newuser">
+                    <button className="userAddButton">Create</button>
+                </Link>
             </div>
-          </div>
-          <div className="userShowBottom">
-            <span className="userShowTitle">Account Details</span>
-            <div className="userShowInfo">
-              <PermIdentity className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99</span>
+            <div className="userContainer">
+                <div className="userShow">
+                    <div className="userShowTop">
+                        <img src={user.profilePic || "https://wallpapers-clan.com/wp-content/uploads/2022/07/anime-default-pfp-2.jpg"} alt="" className="userShowImg"/>
+                        <div className="userShowTopTitle">
+                            <span className="userShowUsername">{user.username}</span>
+                            <span className="userShowUserTitle">{user.isAdmin ? "Admin User" : "All Anime user"}</span>
+                        </div>
+                    </div>
+                    <div className="userShowBottom">
+                        <span className="userShowTitle">Account Details</span>
+                        <div className="userShowInfo">
+                            <PermIdentity className="userShowIcon"/>
+                            <span className="userShowInfoTitle">{user.email}</span>
+                        </div>
+                        <div className="userShowInfo">
+                            <CalendarToday className="userShowIcon"/>
+                            <span className="userShowInfoTitle">Created At: <b>{user.createdAt.slice(0,10)}</b></span>
+                        </div>
+                        <div className="userShowInfo">
+                            <CalendarTodayTwoTone className="userShowIcon"/>
+                            <span className="userShowInfoTitle">Last Updated: <b>{user.updatedAt.slice(0,10)}</b></span>
+                        </div>
+                        <span className="userShowTitle">Contact Details</span>
+
+                        <div className="userShowInfo">
+                            <MailOutline className="userShowIcon"/>
+                            <span className="userShowInfoTitle">{user.email}</span>
+                        </div>
+
+                    </div>
+                </div>
+                <div className="userUpdate">
+                    <span className="userUpdateTitle">Edit</span>
+                    <form className="userUpdateForm">
+                        <div className="userUpdateLeft">
+                            <div className="userUpdateItem">
+                                <label>Username</label>
+                                <input type="text" placeholder={user.username} name="username" className="userUpdateInput"  onChange={handleChange}/>
+                            </div>
+
+                            <div className="userUpdateItem">
+                                <label>Email</label>
+                                <input type="text" placeholder={user.email} name="email" className="userUpdateInput"  onChange={handleChange}/>
+                            </div>
+
+                            <div className="userUpdateItem">
+                                <label>Admin Status</label>
+                                <select name="isAdmin" id="isAdmin" className="userUpdateInput"
+                        onChange={handleChange}>
+                          <option >Admin</option>
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                            </div>
+
+
+                        </div>
+                        <div className="userUpdateRight">
+                            <div className="userUpdateUpload">
+                                <img className="userUpdateImg" src={user.profilePic || "https://wallpapers-clan.com/wp-content/uploads/2022/07/anime-default-pfp-2.jpg"} alt=""/>
+                                <label htmlFor="file">
+                                    <Publish className="userUpdateIcon"/>
+                                </label>
+
+                            </div>
+                            <button className="userUpdateButton" onClick={handleUpdate}>Update</button>
+                        </div>
+                    </form>
+                </div>
             </div>
-            <div className="userShowInfo">
-              <CalendarToday className="userShowIcon" />
-              <span className="userShowInfoTitle">10.12.1999</span>
-            </div>
-            <span className="userShowTitle">Contact Details</span>
-            <div className="userShowInfo">
-              <PhoneAndroid className="userShowIcon" />
-              <span className="userShowInfoTitle">+1 123 456 67</span>
-            </div>
-            <div className="userShowInfo">
-              <MailOutline className="userShowIcon" />
-              <span className="userShowInfoTitle">annabeck99@gmail.com</span>
-            </div>
-            <div className="userShowInfo">
-              <LocationSearching className="userShowIcon" />
-              <span className="userShowInfoTitle">New York | USA</span>
-            </div>
-          </div>
         </div>
-        <div className="userUpdate">
-          <span className="userUpdateTitle">Edit</span>
-          <form className="userUpdateForm">
-            <div className="userUpdateLeft">
-              <div className="userUpdateItem">
-                <label>Username</label>
-                <input
-                  type="text"
-                  placeholder="annabeck99"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Full Name</label>
-                <input
-                  type="text"
-                  placeholder="Anna Becker"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Email</label>
-                <input
-                  type="text"
-                  placeholder="annabeck99@gmail.com"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Phone</label>
-                <input
-                  type="text"
-                  placeholder="+1 123 456 67"
-                  className="userUpdateInput"
-                />
-              </div>
-              <div className="userUpdateItem">
-                <label>Address</label>
-                <input
-                  type="text"
-                  placeholder="New York | USA"
-                  className="userUpdateInput"
-                />
-              </div>
-            </div>
-            <div className="userUpdateRight">
-              <div className="userUpdateUpload">
-                <img
-                  className="userUpdateImg"
-                  src="https://images.pexels.com/photos/1152994/pexels-photo-1152994.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
-                  alt=""
-                />
-                <label htmlFor="file">
-                  <Publish className="userUpdateIcon" />
-                </label>
-                <input type="file" id="file" style={{ display: "none" }} />
-              </div>
-              <button className="userUpdateButton">Update</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
+    );
 }

@@ -26,14 +26,13 @@ export default function Anime() {
         e.preventDefault();
         console.log(movie)
         updateMovies(movie,dispatch) 
-        window.location.reload(false);
         window.location.href = '/'
     }
     
   return (
     <div className="anime">
       <div className="animeTitleContainer">
-        <h1 className="animeTitle">Anime</h1>
+        <h1 className="animeTitle">Edit Anime</h1>
         <Link to="/newanime">
           <button className="animeAddButton">Create</button>
         </Link>

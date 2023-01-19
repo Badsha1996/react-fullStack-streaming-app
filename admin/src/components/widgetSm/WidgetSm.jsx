@@ -21,6 +21,7 @@ export default function WidgetSm() {
       
     }
     getNewUser()
+    return () => console.log('unmounting...');
   },[])
  
   return (

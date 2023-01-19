@@ -6,7 +6,6 @@ import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom
 import UserList from "./pages/userList/UserList";
 import User from "./pages/user/User";
 import NewUser from "./pages/newUser/NewUser";
-import ProductList from "./pages/animeList/AnimeList";
 import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
@@ -16,6 +15,7 @@ import Lists from "./pages/lists/Lists";
 
 import NewList from "./pages/newList/NewList";
 import List from "./pages/list/List";
+import AnimeList from "./pages/animeList/AnimeList";
 
 
 function App() {
@@ -40,25 +40,28 @@ function App() {
                         <Home/>
                     </Route>
                     
+                    {/* user routes */}
                     <Route path="/users">
                         <UserList/>
                     </Route>
                     <Route path="/user/:userId">
                         <User/>
                     </Route>
-                    <Route path="/newUser">
+                    <Route path="/newuser">
                         <NewUser/>
                     </Route>
-                    <Route path="/movies">
-                        <ProductList/>
+
+                        {/* Anime routes */}
+                    <Route path="/animes">
+                        <AnimeList/>
                     </Route>
-                   
-                    <Route path="/product/:productId">
+                    <Route path="/anime/:animeId">
                         <Anime/>
                     </Route>
                     <Route path="/newanime">
                         <NewAnime/>
                     </Route>
+
                     <Route path="/lists">
                         <Lists/>
                     </Route>
