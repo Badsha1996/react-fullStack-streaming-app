@@ -6,7 +6,7 @@ import { AuthContext } from "../../context/authContext/AuthContext";
 
 export default function Topbar() {
   const {user} = useContext(AuthContext)
-  console.log(user)
+  
   return (
     <div className="topbar">
       <div className="topbarWrapper">

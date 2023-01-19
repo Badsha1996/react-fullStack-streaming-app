@@ -32,9 +32,26 @@ router.delete("/:id", verify ,async(req, res)=>{
     }
 })
 
-// FIND ALL MOVIES 
+
+// UPDATE LIST
+router.put("/:id", verify ,async(req, res)=>{
+    if(req.user.isAdmin){
+        try {
+            const updatedList = await List.findByIdAndUpdate(req.params.id,
+            {$set : req.body},
+            {new : true});
+            res.status(200).json(updatedList)
+        } catch (error) {
+            res.status(500).json(error)
+        }
+    }else{
+        res.status(403).json("You are not allowed to update")
+    }
+})
+
+
+// FIND ALL LISTS
 router.get("/", verify ,async(req, res)=>{
-    // localhost:8800/api/lists?type=movie&genre=action
     const typeQuery = req.query.type;
     const genreQuery = req.query.genre;
     let list = [] ;

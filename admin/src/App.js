@@ -12,6 +12,10 @@ import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
 import Anime from "./pages/anime/Anime";
 import NewAnime from "./pages/newAnime/NewAnime";
+import Lists from "./pages/lists/Lists";
+
+import NewList from "./pages/newList/NewList";
+import List from "./pages/list/List";
 
 
 function App() {
@@ -48,11 +52,21 @@ function App() {
                     <Route path="/movies">
                         <ProductList/>
                     </Route>
+                   
                     <Route path="/product/:productId">
                         <Anime/>
                     </Route>
                     <Route path="/newanime">
                         <NewAnime/>
+                    </Route>
+                    <Route path="/lists">
+                        <Lists/>
+                    </Route>
+                    <Route path="/list/:listId">
+                        <List/>
+                    </Route>
+                    <Route path="/newlist">
+                        <NewList/>
                     </Route>
                     </div>
                     </>}

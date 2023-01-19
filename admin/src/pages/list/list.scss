@@ -1,0 +1,143 @@
+.anime {
+  flex: 4;
+  padding: 20px;
+}
+
+.animeTitleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .animeTitle{
+    margin-left: 2em;
+    color: #ffff;
+    text-shadow: 1px solid rgba(0, 0, 0, 0.75);
+  }
+}
+.animeInfoKey{
+  margin-right: 2em;
+}
+.animeAddButton {
+  width: 80px;
+  border: none;
+  padding: 5px;
+  background-color: teal;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.animeTop {
+  display: flex;
+}
+
+.animeTopLeft,
+.animeTopRight {
+  flex: 1;
+}
+
+.animeTopRight {
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.animeInfoImg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.animeInfoTop {
+  display: flex;
+  align-items: center;
+}
+
+.animeName {
+  font-weight: 600;
+}
+
+.animeInfoBottom {
+  margin-top: 10px;
+}
+
+.animeInfoItem {
+  width: 150px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.animeInfoValue {
+  font-weight: 300;
+  
+}
+
+.animeBottom {
+  padding: 20px;
+  margin: 20px;
+  -webkit-box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 15px -10px rgba(0, 0, 0, 0.75);
+}
+
+.animeForm {
+  display: flex;
+  justify-content: space-between;
+}
+
+.animeFormLeft {
+  display: flex;
+  flex-direction: column;
+}
+
+.animeFormLeft > label {
+  margin-bottom: 10px;
+  color: rgb(0, 0, 0);
+}
+
+.animeFormLeft > input {
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  border-bottom: 1px solid gray;
+}
+
+.animeFormLeft >select{
+  margin-bottom: 10px;
+}
+
+.animeUploadImg{
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+.animeFormRight{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.animeUpload{
+  display: flex;
+  align-items:center;
+  float: left;
+}
+
+.animeButton{
+  position: relative;
+  left: 0;
+  border: none;
+  float: left;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: darkblue;
+  color:white;
+  font-weight: 600;
+  cursor: pointer;
+}

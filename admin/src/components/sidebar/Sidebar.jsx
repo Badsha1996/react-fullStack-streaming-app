@@ -1,18 +1,19 @@
 import "./sidebar.scss";
 import {
   LineStyle,
-  Timeline,
   PermIdentity,
-  MailOutline,
   WorkOutline,
+  List,
   Report,
   PlayCircleFilledOutlined,
   AddAPhoto,
+  AddCommentSharp,
 } from "@material-ui/icons";
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/authContext/AuthContext";
 import { logOut } from "../../context/authContext/apiCalls";
+
 
 export default function Sidebar() {
   const {dispatch} = useContext(AuthContext)
@@ -33,11 +34,13 @@ export default function Sidebar() {
               Home
             </li>
             </Link>
+
+            <Link to="/lists" className="link">
             <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Analytics
+              <List className="sidebarIcon" />
+              Lists
             </li>
-            
+            </Link>
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -65,13 +68,15 @@ export default function Sidebar() {
           </ul>
         </div>
         <div className="sidebarMenu">
-          <h3 className="sidebarTitle">Notifications</h3>
+          <h3 className="sidebarTitle">Lists</h3>
           <ul className="sidebarList">
+          <Link to="/newlist" className="link">
             <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
+              <AddCommentSharp className="sidebarIcon" />
+              Add New List
             </li>
-            
+            </Link>
+
           </ul>
         </div>
         <div className="sidebarMenu">
@@ -82,7 +87,7 @@ export default function Sidebar() {
               Manage
             </li>
           
-            <li className="sidebarListItem" onClick={handleLogout}>
+            <li className="sidebarListItem logout" onClick={handleLogout}>
               <Report className="sidebarIcon"/>
               Logout
             </li>
