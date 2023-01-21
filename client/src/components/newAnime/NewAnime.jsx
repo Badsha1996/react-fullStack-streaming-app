@@ -1,9 +1,9 @@
-import "./news.scss"
+import "./newAnime.scss"
 import TrailerButton from "../trailer-button/TrailerButton";
 import { AcUnit, LiveTv, People } from "@material-ui/icons";
 
 
-const News = ({ animeData }: { animeData: any }) => {
+const NewAnime = ({ animeData }) => {
     return (
         <>
             <span className="anime-title"><b>Anime this season</b> </span>
@@ -11,7 +11,7 @@ const News = ({ animeData }: { animeData: any }) => {
 
                 {
                     animeData ? (
-                        animeData.map((anime: any, index: number, play: boolean = false) => {
+                        animeData.map((anime, index, play = false) => {
 
                             return (
                                 <div className="container" key={index}>
@@ -60,4 +60,4 @@ const News = ({ animeData }: { animeData: any }) => {
     )
 }
 
-export default News
+export default NewAnime;

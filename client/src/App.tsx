@@ -1,3 +1,4 @@
+import { useContext } from "react";
 import "./App.scss"
 import Home from "./pages/home/Home";
 import Login from "./pages/login/Login";
@@ -8,9 +9,10 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import { AuthContext } from "./authContext/AuthContext";
 
 const App = () => {
-  const user = true;
+  const {user} = useContext(AuthContext)
   return (
     <Router>
       <div className="App">
@@ -22,7 +24,7 @@ const App = () => {
           {
             user && (
               <>
-                <Route path="/movies" element={<Home type="movies" />} />
+                <Route path="/movies" element={<Home type="movie" />} />
                 <Route path="/series" element={<Home type="series" />} />
                 <Route path="/watch" element={<Watch />} />
               </>

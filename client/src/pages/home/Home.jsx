@@ -2,18 +2,18 @@ import Footer from "../../components/footer/Footer"
 import Hero from "../../components/hero/Hero"
 import List from "../../components/list/List"
 import Navbar from "../../components/navbar/Navbar"
-import News from "../../components/news/News"
+import News from "../../components/newAnime/NewAnime"
 import { useEffect, useState } from "react"
 import "./home.scss"
 import AnimatedCard from "../../components/animated-card/AnimatedCard"
 import axios from "axios"
 
 
-const Home = ({type} : {type: string}) => {
+const Home = ({type}) => {
   const [animeData, setAnimeData] = useState([])
   const [lists, setLists] = useState([])
   const [genre, setGenre] = useState("")
-  const getAnimes = async(_url: any) =>{
+  const getAnimes = async(_url) =>{
       try {
           const res  =  await fetch(_url);
           const data =  await res.json();
@@ -28,7 +28,7 @@ const Home = ({type} : {type: string}) => {
         const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
         {
             headers : {
-                token : "king eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzYTY5NzVjOTY2MTM4MDQ1NDgyYTYyMCIsImlzQWRtaW4iOnRydWUsImlhdCI6MTY3MzYyNjQ5OSwiZXhwIjoxNjczODg1Njk5fQ.v3Q2ds1UTLIlgheiylAdd61prbPI7D0RssKWXggsuy0"
+                token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }
         }
         )
@@ -45,7 +45,7 @@ const Home = ({type} : {type: string}) => {
   return (
     <div className="Home">
         <Navbar/>
-        <Hero type={type}/> 
+        <Hero type={type} setGenre={setGenre}/> 
         {
             lists.map((list, index)=>{
                 return(
