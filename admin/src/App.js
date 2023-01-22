@@ -23,7 +23,6 @@ const List = React.lazy(() => import("./pages/list/List"));
 const AnimeList = React.lazy(() => import("./pages/animeList/AnimeList"));
 
 
-
 function App() {
     const {user} = useContext(AuthContext)
     return (
