@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import { AuthContextProvider, RegisterContextProvider } from './context/authContext/AuthContext';
+import { AuthContextProvider } from './context/authContext/AuthContext';
 import { MovieContextProvider } from './context/movieContext/MovieContext';
 import { ListContextProvider } from './context/listContext/ListContext';
 import { UserContextProvider } from './context/userContext/UserContext';
 
 ReactDOM.render (<React.StrictMode>
     <AuthContextProvider>
-      <RegisterContextProvider>
       <UserContextProvider>
       <MovieContextProvider>
         <ListContextProvider>
@@ -16,7 +15,6 @@ ReactDOM.render (<React.StrictMode>
         </ListContextProvider>
       </MovieContextProvider>
       </UserContextProvider>
-      </RegisterContextProvider>
     </AuthContextProvider>
 
 </React.StrictMode>, document.getElementById('root'));

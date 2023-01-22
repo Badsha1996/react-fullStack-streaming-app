@@ -1,5 +1,5 @@
 import "./newAnime.scss"
-import TrailerButton from "../trailer-button/TrailerButton";
+import TrailerButton from "../trailerButton/TrailerButton";
 import { AcUnit, LiveTv, People } from "@material-ui/icons";
 
 

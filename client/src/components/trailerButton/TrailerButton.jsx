@@ -6,7 +6,7 @@ import "./trailerButton.scss"
 
 
 
-const TrailerButton = ({ animeURL }: { animeURL: any }) => {
+const TrailerButton = ({ animeURL }) => {
     const [isClicked, setIsClicked] = useState(false)
     const handlePlay = () => {
         setIsClicked(true)

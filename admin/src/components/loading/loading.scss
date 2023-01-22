@@ -1,0 +1,100 @@
+  
+.container-load{
+  position: relative;
+  scale: 0.35;
+  width: 70vw;
+z-index: 1000;
+left: -20;
+float: left;
+}
+
+.svg{
+    position: relative;
+    top: 200;
+     
+  }
+  
+  @keyframes orbit {
+    to {
+      stroke-dashoffset: 100px;
+    }
+  }
+  
+  @keyframes negativeOrbit {
+    to {
+      stroke-dashoffset: -100px;
+    }
+  }
+  #prefix__b {
+    stroke: white;
+    stroke-width: 1px;
+    fill: black;
+    stroke-dasharray: 25px 10px;
+    animation: negativeOrbit 1s infinite linear;
+  }
+  
+  
+  #outer_circle {
+    fill: transparent;
+  }
+  
+  #top_main_piece {
+    fill: #30b9d5;
+  }
+  #top_left_piece {
+    fill: #30b7d4;
+  }
+  
+  #top_right_piece {
+    fill: #30b7d4;
+  }
+  
+  #left_middle_piece {
+    fill: #30b7d4;
+  }
+  #right_middle_piece {
+    fill: #30b7d4;
+  }
+  #left_main_piece {
+    fill: #30b7d4;
+  }
+  
+  #right_main_piece {
+    fill: #30b7d4;
+  }
+  
+  #left_bottom_piece {
+    fill: #30b7d4;
+  }
+  
+  #right_bottom_piece {
+    fill: #30b7d4;
+  }
+  
+  #right_center_piece {
+    fill: #30b7d4;
+  }
+  
+  #left_center_piece {
+    fill: #30b7d4;
+  }
+  
+  #top_center_piece {
+    fill: #30b7d4;
+  }
+  
+  #center_piece {
+    fill: #30b7d4;
+    stroke: white;
+    stroke-width: 0.5px;
+  }
+  
+  #inner_ring {
+    /* stroke: #11059b; */
+    stroke: white;
+    stroke-width: 10px;
+    fill: black;
+    stroke-dasharray: 35px 15px;
+    animation: orbit 0.3s infinite linear;
+  }
+  

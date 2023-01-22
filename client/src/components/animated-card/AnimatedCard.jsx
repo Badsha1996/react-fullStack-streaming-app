@@ -1,6 +1,6 @@
 import "./animatedCard.scss"
 
-const AnimatedCard = ({ animeData }: { animeData: any }) => {
+const AnimatedCard = ({ animeData }) => {
     const randInt = (Math.floor(Math.random() * ((animeData.length - 4) - 0 + 1) + 0))
     return (
     <>
@@ -9,7 +9,7 @@ const AnimatedCard = ({ animeData }: { animeData: any }) => {
             <div className="anime-card">
                 {
                     animeData ? (
-                        animeData.slice(randInt, randInt + 3).map((anime: any, index: number) => {
+                        animeData.slice(randInt, randInt + 3).map((anime, index) => {
                             return (
                                 <div className="cardBox" key={index}>
                                     <div className="card">

@@ -1,3 +1,4 @@
+@import "../../app.scss";
 .card-header{
   display: flex;
   justify-content: center;
@@ -26,8 +27,19 @@
         align-items: center;
         justify-content: space-evenly;
         flex-wrap: wrap;
+        @include mini-mobile{
+            border-radius: 0.1rem;
+        }
+        
 
     }
+    @include mini-mobile{
+        height: 10rem;
+        border-radius: 0.1rem;
+        
+
+    }
+    
 }
 
 .cardBox {
@@ -39,6 +51,20 @@
     overflow: hidden;
     border-radius: 20px;
     box-shadow: rgba(110, 110, 110, 0.4) 0 2px 10px 0, rgba(109, 109, 109, 0.5) 0 2px 25px 0;
+    @include big-tablet{
+        height: 80%;
+        width: 30%;
+    }
+    @include tablet{
+        height: 55%;
+        width: 30%;
+
+    }
+    @include mini-mobile{
+        height: 50%;
+        width: 25%;
+
+    }
 }
 .card {
     position: absolute;
@@ -71,11 +97,16 @@
 .card .content .p {
     font-size: 0.7rem;
     overflow: hidden;
+    @include tablet{
+        display: none;
+    }
+    
 }
 .card .content {
     transform: translateY(100%);
     opacity: 0;
     transition: 0.3s ease-in-out;
+    
 }
 
 .card:hover .content {

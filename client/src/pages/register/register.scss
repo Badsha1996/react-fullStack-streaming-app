@@ -75,6 +75,7 @@
                 height: 100%;
                 border: none;
                 padding: 0 0.625em;
+                border-radius: 1.5rem;
             }
 
             .btn-register{
@@ -82,9 +83,14 @@
                 background-color: var(--primary-clr);
                 height: 100%;
                 border: none;
+                
                 color: var(--primary-white-clr);
                 font-size: 1.3rem;
                 cursor: pointer;
+                &:hover{
+                    color: black;
+                    background-color: rgb(213, 104, 64);
+                }
             }
         }
     }

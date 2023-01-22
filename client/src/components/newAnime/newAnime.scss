@@ -1,3 +1,4 @@
+@import "../../app.scss";
 .News{
     min-height: 10rem;
     background-color: var(--primary-dark-clr);
@@ -22,6 +23,13 @@
         justify-content: space-evenly;
         align-items: center;
         transition: all 0.3s ease-in-out;
+        @include mobile{
+            display: none;
+        }
+        @include tablet{
+            display: none;
+        }
+
         .top-text{
             font-size: 0.8rem;
             
@@ -35,10 +43,32 @@
         position: relative;
         cursor: pointer;
         box-shadow: 0 0 0.2rem rgba($color: #696969, $alpha: 1.0);
+        @include mobile{
+            height: 6.5rem;
+            width: 30%;
+            
+        }
+        @include tablet{
+            height: 20rem;
+            width: 40%;
+            margin: 1.5em;
+        }
+
+        @include mini-mobile{
+            height: 14rem;
+            width: 80%;
+            margin: 1em;
+        }
         &__video{
             background-color: red;
             height: 0;
             width: 0;
+            @include mobile{
+                display: none;
+            }
+            @include tablet{
+                display: none;
+            }
         }
         span{
             position: absolute;
@@ -60,6 +90,12 @@
                     top: 350%;
                     left: 250%;
                     transition: all 0.2s ease-in-out; 
+                }
+                @include mobile{
+                    display: none;
+                }
+                @include tablet{
+                    display: none;
                 }
             }
         }
@@ -99,13 +135,27 @@
             .anime-poster{
                 height: 100%;
                 width: 100%;
+               
             }
+            
                
         }
         .ani-title{
             margin-top: 1em;
             color: lightgray;
             font-weight: 500;
+            @include mobile{
+                font-weight: 200;
+                font-size: 0.7rem;
+            }
+            @include tablet{
+                font-weight: 300;
+                font-size: 0.8rem;
+            }
+            @include mini-mobile{
+                font-weight: 100;
+                font-size: 0.7rem;
+            }
         }
     }
 }

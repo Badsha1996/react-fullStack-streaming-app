@@ -1,21 +1,27 @@
-import Sidebar from "./components/sidebar/Sidebar";
-import Topbar from "./components/topbar/Topbar";
 import "./App.scss";
-import Home from "./pages/home/Home";
+import React,{Suspense} from 'react';
 import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
-import UserList from "./pages/userList/UserList";
-import User from "./pages/user/User";
-import NewUser from "./pages/newUser/NewUser";
-import Login from "./pages/login/Login";
 import { useContext } from "react";
 import { AuthContext } from "./context/authContext/AuthContext";
-import Anime from "./pages/anime/Anime";
-import NewAnime from "./pages/newAnime/NewAnime";
-import Lists from "./pages/lists/Lists";
+import Loading from "./components/loading/Loading";
+import Home from "./pages/home/Home";
+import Login from "./pages/login/Login"
+import Sidebar from "./components/sidebar/Sidebar";
+import Topbar from "./components/topbar/Topbar";
 
-import NewList from "./pages/newList/NewList";
-import List from "./pages/list/List";
-import AnimeList from "./pages/animeList/AnimeList";
+// CODE splitting 
+// const Home = React.lazy(() => import("./pages/home/Home"));
+const UserList = React.lazy(() => import("./pages/userList/UserList"));
+const User = React.lazy(() => import("./pages/user/User"));
+const NewUser = React.lazy(() => import("./pages/newUser/NewUser"));
+
+const Anime = React.lazy(() => import("./pages/anime/Anime"));
+const NewAnime = React.lazy(() => import("./pages/newAnime/NewAnime"));
+const Lists = React.lazy(() => import("./pages/lists/Lists"));
+const NewList = React.lazy(() => import("./pages/newList/NewList"));
+const List = React.lazy(() => import("./pages/list/List"));
+const AnimeList = React.lazy(() => import("./pages/animeList/AnimeList"));
+
 
 
 function App() {
@@ -39,38 +45,62 @@ function App() {
                     <Route exact path="/">
                         <Home/>
                     </Route>
-                    
+                
                     {/* user routes */}
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/users">
                         <UserList/>
                     </Route>
+                    </Suspense>
+
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/user/:userId">
                         <User/>
                     </Route>
+                    </Suspense>
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/newuser">
                         <NewUser/>
                     </Route>
-
+                    </Suspense>
                         {/* Anime routes */}
+                        <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/animes">
                         <AnimeList/>
                     </Route>
+                    </Suspense>
+
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/anime/:animeId">
                         <Anime/>
                     </Route>
+                    </Suspense>
+
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/newanime">
                         <NewAnime/>
                     </Route>
+                    </Suspense>
 
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/lists">
                         <Lists/>
                     </Route>
+                    </Suspense>
+
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/list/:listId">
                         <List/>
                     </Route>
+                    </Suspense>
+
+                    <Suspense fallback={<Loading className="svg"/>}>
                     <Route path="/newlist">
                         <NewList/>
                     </Route>
+                    </Suspense>
+
+                    
                     </div>
                     </>}
                 

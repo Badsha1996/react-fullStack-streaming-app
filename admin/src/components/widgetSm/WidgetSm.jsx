@@ -7,26 +7,31 @@ export default function WidgetSm() {
   const [newUser, setNewUser] = useState([])
 
   useEffect(()=>{
+    const cancleToken = axios.CancelToken.source();
     const getNewUser = async ()=>{
       try {
         const res =await axios.get("/users?new=true",{
           headers: {
               token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
-          }
+          },CancleToken:cancleToken.token
       })
       setNewUser(res.data)
       } catch (error) {
-        console.log(error)
+        if(axios.isCancel(error)){
+          console.log("cancled")
+        }else{
+          // error 
+        }
       }
       
     }
     getNewUser()
-    return () => console.log('unmounting...');
+    return () => {cancleToken.cancel()}
   },[])
  
   return (
     <div className="widgetSm">
-      <span className="widgetSmTitle">New Join Members</span>
+      <span className="widgetSmTitle">All Joined Members</span>
       <ul className="widgetSmList">
         {newUser.map((user,i)=>(
           <li className="widgetSmListItem" key={i}>

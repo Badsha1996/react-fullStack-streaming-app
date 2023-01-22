@@ -1,3 +1,5 @@
+@import "../../app.scss";
+
 .Hero{
     position: relative;
     height: 90vh;
@@ -47,6 +49,12 @@
             margin: 0 0 1rem 0;
             font-size: 1rem;
             font-style: italic;
+            @include mobile{
+                width: 400px;
+            }
+            @include mini-mobile{
+                width: 200px;
+            }
         }
 
         .buttons{

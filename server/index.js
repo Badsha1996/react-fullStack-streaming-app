@@ -20,6 +20,7 @@ app.use(cors({
     credentials: true
 }))
 
+
 main().catch(err => console.log(err))
 
 
@@ -35,9 +36,14 @@ app.use("/api/auth", authRoute)
 app.use("/api/users", usersRoute)
 app.use("/api/movies", moviesRoute)
 app.use("/api/lists", listsRoute)
+app.get("/",(req,res)=>{
+    res.send("API is running")
+})
+app.get("*", function(req, res) {
+    res.send("App works!!!!!");
+ })
 
-
-app.listen(8800, ()=>{
+app.listen(process.env.PORT, ()=>{
     console.log("The server is running !!")
 })
 

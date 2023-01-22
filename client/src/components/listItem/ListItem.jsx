@@ -27,7 +27,7 @@ const ListItem = ({index, item}) => {
 
         <div className="ListItem">
             <img src={
-                    movie.img
+                    movie.img 
                 }
                 alt="anime"/>
             <div className="itemInfo">

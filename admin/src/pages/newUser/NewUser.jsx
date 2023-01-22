@@ -1,22 +1,23 @@
 import { useState } from "react";
 import "./newUser.scss";
-import { RegisterContext } from "../../context/authContext/AuthContext";
-import { useContext } from "react";
-import { register } from "../../context/authContext/apiCalls";
+import {useHistory} from "react-router-dom"
+import axios from "axios";
 
 export default function NewUser() {
   const [username, setUserName] = useState("")
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
-  const {isFetching, dispatch} = useContext(RegisterContext)
+  const [isAdmin, setIsAdmin] = useState(null);
+  const history = useHistory()
   
-  
-  const handleLogin = (e) =>{
+  const handleRegister = async(e) =>{
     e.preventDefault();
-    const user = {username, email, password, isAdmin}
-    register(user, dispatch)
-    window.location.href = '/users'
+    try {
+      await axios.post("auth/register", {username,email,password,isAdmin})
+      history.push('/users')
+  } catch (error) {
+      console.log(error)
+  }
 }
   return (
     <div className="newUser">
@@ -40,11 +41,11 @@ export default function NewUser() {
       
         <div className="newUserItem checkboxModel">
           
-          <input type="checkbox" className="newUserSelect checkbox" name="isAdmin" id="isAdmin" onChange={(e)=>e.target.value==="on" ? setIsAdmin(true):setIsAdmin(false)}/>
+          <input type="checkbox" className="newUserSelect checkbox" name="isAdmin" id="isAdmin" onChange={(e)=>{e.target.value==="on" ? setIsAdmin(true):setIsAdmin(false)}}/>
           <label >Admin</label>
         </div>
-        <button className="newUserButton" onClick={handleLogin}
-            disabled={isFetching}>Create</button>
+        <button className="newUserButton" onClick={handleRegister}
+            >Create</button>
       </form>
     </div>
   );

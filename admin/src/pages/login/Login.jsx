@@ -12,6 +12,7 @@ const Login = () => {
     const handleLogin = (e) =>{
         e.preventDefault();
         const user = {email, password}
+        console.log(user)
         try {
            login(user, dispatch)
         } catch (error) {

@@ -12,7 +12,11 @@ export default function Lists() {
     
     
     useEffect(() => {
+
         getLists(dispatch)
+        return ()=>{
+            
+        }
     }, [dispatch])
 
     const handleDelete = (id) => {

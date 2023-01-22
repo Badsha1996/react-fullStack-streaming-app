@@ -12,7 +12,11 @@ export default function NewList() {
     const {movies, dispatch:dispatchMovie} = useContext(MovieContext)
     
 useEffect(()=>{
+    
 getMovies(dispatchMovie)
+return ()=> {
+    
+}
 },[dispatchMovie])
     const handleChange = (e) => {
         const value = e.target.value;

@@ -4,6 +4,7 @@ import storage from "../../firebase";
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import { createMovies } from "../../context/movieContext/apiCalls";
 import { MovieContext } from "../../context/movieContext/MovieContext";
+import { useHistory } from "react-router-dom";
 
 export default function NewAnime() {
     const [movie, setMovie] = useState({});
@@ -14,13 +15,14 @@ export default function NewAnime() {
     const [video, setVideo] = useState("");
     const [uploaded, setUploaded] = useState(0);
     const {dispatch} = useContext(MovieContext)
-
+const history = useHistory()
     const handleChange = (e) => {
         const value = e.target.value;
         setMovie({
             ...movie,
             [e.target.name]: value
         })
+        history.push("/animes")
     }
     const upload = (items) => {
         items.forEach((item) => {
@@ -97,7 +99,6 @@ export default function NewAnime() {
     }
     const handleSubmit = (e)=>{
         e.preventDefault();
-        console.log(movie)
         createMovies(movie,dispatch)
 
     }

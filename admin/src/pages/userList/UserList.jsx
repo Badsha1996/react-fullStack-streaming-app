@@ -2,7 +2,7 @@ import "./userList.scss";
 import {DataGrid} from "@material-ui/data-grid";
 import {DeleteOutline} from "@material-ui/icons";
 
-import {Link} from "react-router-dom";
+import {Link,useHistory} from "react-router-dom";
 
 import {useContext} from "react";
 import {UserContext} from "../../context/userContext/UserContext";
@@ -12,14 +12,17 @@ import {deleteUser, getUser} from "../../context/userContext/apiCalls";
 
 export default function UserList() {
     const {users, dispatch} = useContext(UserContext)
-    
+    const history = useHistory()
     useEffect(() => {
-      getUser(dispatch)
+        getUser(dispatch)
+        return ()=>{
+            
+        }
     }, [dispatch])
 
-    const handleDelete = (id,e) => {
+    const handleDelete = (id) => { 
         deleteUser(id,dispatch)
-        window.location.reload(false);
+        history.push("/")
     }
     const columns = [
         {

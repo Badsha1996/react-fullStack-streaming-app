@@ -29,6 +29,7 @@ export default function Home() {
 const [userStats, setUserStats] = useState([])
 
 useEffect(() => {
+  const cancleToken = axios.CancelToken.source();
   const getState = async () => {
     try {
         const res = await axios.get("/users/stats", {
@@ -46,7 +47,7 @@ useEffect(() => {
 
 }
     getState()
-    
+    return () => {cancleToken.cancel()}
 }, [MONTHS])
 
   return (

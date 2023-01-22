@@ -4,3 +4,32 @@
     --primary-white-clr :  hsl(0, 0%, 93%);
     --primary-clr : hsl(8, 78%, 52%); 
 }
+
+
+// FOR TABLET
+@mixin tablet {
+    @media (max-width : 768px){
+        @content;
+    }
+}
+
+// FOR MOBILE
+@mixin mobile {
+    @media (max-width : 535px){
+        @content;
+    }
+    
+
+}
+
+@mixin mini-mobile {
+    @media (max-width : 480px){
+        @content;
+    }
+}
+
+@mixin big-tablet {
+    @media (max-width : 898px){
+        @content;
+    }
+}

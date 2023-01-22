@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import "./anime.scss";
 import { Publish } from "@material-ui/icons";
 import { useContext, useState } from "react";
@@ -12,7 +12,7 @@ export default function Anime() {
     const movies = location.movie;
     const [movie, setMovie] = useState(movies);
     const {dispatch} = useContext(MovieContext);
-    
+    const history = useHistory()
     
     const handleChange = (e) => {
         const value = e.target.value;
@@ -24,9 +24,8 @@ export default function Anime() {
 
     const handleUpdate = (e) =>{
         e.preventDefault();
-        console.log(movie)
         updateMovies(movie,dispatch) 
-        window.location.href = '/'
+        history.push("/")
     }
     
   return (

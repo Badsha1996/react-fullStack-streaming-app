@@ -1,3 +1,4 @@
+@import "../../App.scss";
 .MenuLabel {
     position: fixed;
     top: 0;
@@ -8,6 +9,7 @@
     cursor: pointer;
     z-index: 1000;
     text-align: center;
+    
     &--icon {
         position: relative;
         background-color: var(--primary-white-clr);
@@ -39,6 +41,7 @@
             &.clicked {
                 top: 0;
                 transform: rotate(-135deg);
+                
             }
 
         }
@@ -65,6 +68,7 @@
         top: 0;
         &.clicked {
             top: -0.7rem;
+            
         }
 
     }
@@ -72,6 +76,7 @@
         top: 0;
         &.clicked {
             top: 0.7rem;
+            
         }
 
     }
@@ -90,6 +95,15 @@
     &.clicked {
         height: 60vh;
         width: 20vw;
+        @include mini-mobile{
+            width: 50vw;
+        }
+        @include mobile{
+            width: 50vw;
+        }
+        @include tablet{
+            width: 50vw;
+        }
     }
 }
 .navigation {

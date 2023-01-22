@@ -1,3 +1,4 @@
+@import "../../app.scss";
 
 @mixin flexBox($justifyType) {
     display: flex;
@@ -27,7 +28,10 @@
             &--logo{
                 position: relative;
                 height: 10rem;
-                left: -2rem
+                left: -2rem;
+                @include mobile{
+                    display: none;
+                }
             }
             
         }
@@ -43,6 +47,9 @@
             .icon{
                 margin: 0em 0.8em;
                 cursor: pointer;
+                @include mini-mobile{
+                    display: none;
+                }
             }
 
             .profile{

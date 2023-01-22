@@ -1,17 +1,18 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import "./humburgerMenu.scss"
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../authContext/AuthContext";
 
 
 
 const HumburgerMenu = () => {
   const [click, setClick] = useState(false);
-
+const {user} = useContext(AuthContext)
   const handleClick = () => {
     setClick(!click)
   }
 
-  const listItems = ["About", "Home", "MyAnimeList", "profile", "Latest"]
+  
   return (
 
     <div className="Humburger" >
@@ -49,13 +50,13 @@ const HumburgerMenu = () => {
 
           <li className="list--items">
             <Link className="list--items__link" onClick={handleClick} to={"/"}>
-              AniList
+              About Me
             </Link>
           </li>
 
           <li className="list--items">
             <Link className="list--items__link" onClick={handleClick} to={"/"}>
-              New and Popular
+              {user.username}
             </Link>
           </li>
 
