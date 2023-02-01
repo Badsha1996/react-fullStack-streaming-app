@@ -6,9 +6,8 @@ import { loginStart, loginSuccess, loginFailure, logout, registerStart, register
 export const login = async (user, dispatch) =>{
     dispatch(loginStart())
     try {
-        const res =  await axios.post("auth/login",user)
+        const res =  await axios.post(import.meta.env.VITE_API + "auth/login",user)
         dispatch(loginSuccess(res.data))
-        console.log(res.data)
     } catch (error) {
         dispatch(loginFailure())
     }

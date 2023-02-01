@@ -2,16 +2,19 @@ import { useState, useContext } from "react"
 import "./humburgerMenu.scss"
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../authContext/AuthContext";
+import { logOut } from "~/authContext/apiCalls";
 
 
 
 const HumburgerMenu = () => {
   const [click, setClick] = useState(false);
-const {user} = useContext(AuthContext)
+  const {dispatch} = useContext(AuthContext)
   const handleClick = () => {
     setClick(!click)
   }
-
+  const handleLogout = () =>{
+    logOut(dispatch)
+  }
   
   return (
 
@@ -43,20 +46,14 @@ const {user} = useContext(AuthContext)
           </li>
 
           <li className="list--items">
-            <Link className="list--items__link" onClick={handleClick} to={"/"}>
-              About
+            <Link className="list--items__link" onClick={handleClick} to={"/setting"}>
+              Setting
             </Link>
           </li>
 
-          <li className="list--items">
-            <Link className="list--items__link" onClick={handleClick} to={"/"}>
-              About Me
-            </Link>
-          </li>
-
-          <li className="list--items">
-            <Link className="list--items__link" onClick={handleClick} to={"/"}>
-              {user.username}
+          <li className="list--items logout" >
+            <Link className="list--items__link logout-link" onClick={handleLogout} to={"/login"}>
+              Logout
             </Link>
           </li>
 

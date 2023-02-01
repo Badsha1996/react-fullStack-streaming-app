@@ -1,4 +1,4 @@
-import {Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined} from "@material-ui/icons"
+import {Add, PlayArrow, ThumbDownOutlined, ThumbUpAltOutlined} from "@mui/icons-material";
 import "./listItem.scss"
 import {useEffect, useState} from "react"
 import axios from "axios"
@@ -6,23 +6,22 @@ import {Link} from "react-router-dom"
 const ListItem = ({index, item}) => {
     const [movie, setMovie] = useState({}) // empty-obj
     
-
-    useEffect(() => {
-        const getMovies = async () => {
-            try {
-                const res = await axios.get("/movies/find/" + item, {
-                    headers: {
-                        token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
-                    }
-                })
-                setMovie(res.data)
-            } catch (err) {
-                console.log(err)
-            }
+    const getMovies = async () => {
+        try {
+            const res = await axios.get(import.meta.env.VITE_API + "/movies/find/" + item, {
+                headers: {
+                    token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
+                }
+            })
+            setMovie(res.data)
+        } catch (err) {
+            console.log(err)
         }
+    }
+    useEffect(() => {
         getMovies()
     }, [item])
-
+    
     return (
 
         <div className="ListItem">
@@ -55,7 +54,7 @@ const ListItem = ({index, item}) => {
                 </div>
                 <div className="desc">
                     {
-                    movie.desc
+                    movie.desc===undefined?"":movie.desc.slice(0,70) + "..."
                 } </div>
                 <div className="genre">
                     {

@@ -12,12 +12,12 @@
 
 .Animated-card {
     position: relative;
-    height: 25rem;
+    height: 20rem;
     margin-bottom: 2rem;
     .anime-card {
         height: 100%;
         margin: 0 1rem;
-        background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(9, 0, 70, 0.7)), url("https://wallpaperaccess.com/full/33227.jpg") no-repeat;
+        background: linear-gradient(0deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("https://wallpaperaccess.com/full/33227.jpg") no-repeat;
         object-fit: cover;
         background-color: rgba(0, 0, 33, 0.5);
         border-radius: 1.5rem;
@@ -36,15 +36,17 @@
     @include mini-mobile{
         height: 10rem;
         border-radius: 0.1rem;
-        
-
+    }
+    @include tablet{
+        height: 40vh;
+        border-radius: 0.1rem;
     }
     
 }
 
 .cardBox {
     width: 18rem;
-    height: 21rem;
+    height: 18rem;
     position: relative;
     display: grid;
     place-items: center;
@@ -56,15 +58,11 @@
         width: 30%;
     }
     @include tablet{
-        height: 55%;
+        height: 90%;
         width: 30%;
 
     }
-    @include mini-mobile{
-        height: 50%;
-        width: 25%;
 
-    }
 }
 .card {
     position: absolute;

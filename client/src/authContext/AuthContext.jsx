@@ -28,24 +28,3 @@ export const AuthContextProvider = ({children}) => {
     )
 
 }
-
-// REGISTER CONTEXT 
-
-// export const RegisterContext = createContext(INITIAL_STATE)
-
-// export const RegisterContextProvider = ({children}) => {
-//     const [state, dispatch] = useReducer(AuthReducer, INITIAL_STATE)
-
-//     return (
-//         <RegisterContext.Provider value={
-//             {
-//                 user: state.user,
-//                 isFetching: state.isFetching,
-//                 error: state.error,
-//                 dispatch
-//             }
-//         }>
-//             {children}</RegisterContext.Provider>
-//     )
-
-// }

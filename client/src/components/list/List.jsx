@@ -1,12 +1,13 @@
-import { ArrowBackIosOutlined,  ArrowForwardIosOutlined} from "@material-ui/icons";
+import { ArrowBackIosOutlined,  ArrowForwardIosOutlined} from "@mui/icons-material";
 import {  useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.scss"
 
 const List = ({list}) => {
     const [cardNumber , setCardNumber] = useState(0);
-
+    const [clickLimit , setClickLimit] = useState((window.innerWidth/230));
     const listRef = useRef() 
+    
     const reset = (dir) =>{
         if (dir==="left"){
             (listRef ).current.style.transform = `translateX(0)`
@@ -25,15 +26,15 @@ const List = ({list}) => {
             if (cardNumber <=3){
                 reset("left")
             }else{
-                (listRef ).current.style.transform = `translateX(${240 + distance}px)`
+                (listRef ).current.style.transform = `translateX(${230 + distance}px)`
             }
         }
-        if (direction === "right" && cardNumber < 5){
+        if (direction === "right" && cardNumber < 10 - clickLimit){
             setCardNumber(cardNumber + 1);
             if(cardNumber >=4){
                 reset("right")
             }else{
-                (listRef ).current.style.transform = `translateX(${-240 + distance}px)`
+                (listRef ).current.style.transform = `translateX(${-230 + distance}px)`
 
             }
             
@@ -46,7 +47,6 @@ const List = ({list}) => {
             <div className="wrapper">
                 <ArrowBackIosOutlined className="arrow Left" 
                 onClick={()=>handleClick("left")}
-                onDoubleClick={(e)=>e.preventDefault()}
                 />
                 <div className="container" ref={(listRef )}>
                     {
@@ -58,7 +58,7 @@ const List = ({list}) => {
                 </div>
                 <ArrowForwardIosOutlined className="arrow Right" 
                 onClick={()=>handleClick("right")}
-                onDoubleClick={(e)=>e.preventDefault()} />
+                />
             </div>
         </div>
     )

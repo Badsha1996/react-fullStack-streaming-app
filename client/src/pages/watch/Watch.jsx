@@ -1,4 +1,4 @@
-import { ArrowBackOutlined} from "@material-ui/icons"
+import { ArrowBackOutlined} from "@mui/icons-material";
 import "./watch.scss"
 import Footer from "../../components/footer/Footer"
 import { useLocation } from "react-router-dom"
@@ -6,26 +6,20 @@ import { NavLink } from "react-router-dom"
 
 const Watch = () => {
   const location = useLocation()
-
   const movie = location.state?.movie;
 
   
   return (
     <div className="Watch">
-      
-     <NavLink  end to="/">
+        <video className="video" controls autoPlay>
+          <source src={movie ? movie.video : "No video availabe"} type="video/mp4" />
+        </video>
+        <NavLink  end to="/">
       <div className="back" >
         <ArrowBackOutlined />
         AllAnime
       </div>
       </NavLink>
-     
-      <div className="video-container">
-      
-        <video className="video" controls autoPlay>
-          <source src={movie ? movie.video : "No video availabe"} type="video/mp4" />
-        </video>
-      </div>
       <div className="info-container">
         <div className="container">
           <div className="main">

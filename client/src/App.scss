@@ -4,6 +4,31 @@
     --primary-white-clr :  hsl(0, 0%, 93%);
     --primary-clr : hsl(8, 78%, 52%); 
 }
+::-webkit-scrollbar {
+    width: 0; 
+}
+a:-webkit-any-link{
+    text-decoration: none;
+    color: currentColor;
+}
+
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     color: transparent;
+//     visibility: hidden;
+//     background: rgba(255, 255, 255, 0.3);
+// }
+
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     border-radius: 50rem;
+//     background: rgba(0, 0, 0, 0.178);
+// }
+
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//     background: grey;
+// }
 
 
 // FOR TABLET
@@ -15,7 +40,7 @@
 
 // FOR MOBILE
 @mixin mobile {
-    @media (max-width : 535px){
+    @media (max-width : 610px){
         @content;
     }
     

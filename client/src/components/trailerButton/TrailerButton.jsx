@@ -1,4 +1,4 @@
-import { CloseOutlined, YouTube } from "@material-ui/icons"
+import { CloseOutlined, YouTube } from "@mui/icons-material";
 import { useState } from "react"
 import "./trailerButton.scss"
 

@@ -3,7 +3,7 @@ import logo from "../../assets/logo.png"
 import {useContext, useState} from "react"
 import {login} from "../../authContext/apiCalls"
 import {AuthContext} from "../../authContext/AuthContext"
-
+import { Link } from "react-router-dom"
 
 const Login = () => {
     const [email, setEmail] = useState("")
@@ -22,6 +22,7 @@ const Login = () => {
         <div className="Login">
             <div className="Login__top">
                 <div className="wrapper">
+                
                     <img src={logo}
                         className="logo"
                         alt="big logo"/>
@@ -42,12 +43,11 @@ const Login = () => {
                             }/>
                         <button className="btn-login"
                             onClick={handleLogin}>Log In</button>
-                        <span>New here ?
-                            <b>Register to access unlimited Anime</b>
+                        <span>New here? <Link to={"/register"}><b>Register to access unlimited Anime</b>
+                            </Link>
                         </span>
                         <small>
-                            The site is protected
-                            <b>Learn More</b>
+                            The site is protected <b>Learn More</b>
                         </small>
                     </form>
                 </div>

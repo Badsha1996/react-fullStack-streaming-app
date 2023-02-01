@@ -15,15 +15,16 @@ export default function NewAnime() {
     const [video, setVideo] = useState("");
     const [uploaded, setUploaded] = useState(0);
     const {dispatch} = useContext(MovieContext)
+    
 const history = useHistory()
     const handleChange = (e) => {
         const value = e.target.value;
         setMovie({
             ...movie,
             [e.target.name]: value
-        })
-        history.push("/animes")
+        })  
     }
+
     const upload = (items) => {
         items.forEach((item) => {
             const metadata = {
@@ -63,7 +64,7 @@ const history = useHistory()
                     default:
                         console.log("error")
                 }
-            }, () => { // Upload completed successfully, now we can get the download URL
+            }, () => { 
                 getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
                     setMovie(prev=>{return {...prev,[item.label]:downloadURL}});
                     setUploaded(prev => prev +1)
@@ -100,6 +101,7 @@ const history = useHistory()
     const handleSubmit = (e)=>{
         e.preventDefault();
         createMovies(movie,dispatch)
+        history.push("/animes")
 
     }
     return (

@@ -1,6 +1,5 @@
-import {InfoOutlined, PlayArrow} from "@material-ui/icons"
+import {InfoOutlined, PlayArrow} from "@mui/icons-material";
 import "./hero.scss"
-import Text from "../../assets/Text.png"
 import {useEffect, useState} from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
@@ -8,28 +7,41 @@ import {Link} from "react-router-dom"
 const Hero = ({type, setGenre}) => {
     const [content, setContent] = useState({img: "", imgTitle: "", desc: ""});
     const [time, setTime] = useState(Date.now());
+    const [movie,setMovie] = useState({})
+    const getMovies = async () => {
+        try {
+            const res = await axios.get(import.meta.env.VITE_API + "/movies/find/" + content._id, {
+                headers: {
+                    token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
+                }
+            })
+            setMovie(res.data)
+        } catch (err) {
+            console.log(err)
+        }
+    }
     const getRandomContent = async () => {
         try {
-            const res = await axios.get(`/movies/random?type=${type}`, {
+            const res = await axios.get(import.meta.env.VITE_API + `/movies/random?type=${type}`, {
                 headers: {
                     token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
                 }
             })
             setContent(res.data[0])
+            content._id && getMovies() 
         } catch (error) {
             console.log(error)
         }
     }
+    
     useEffect(() => {
         getRandomContent()
-        // const interval = setInterval(() => {
-        //     getRandomContent()
-        //     setTime(Date.now()), 5000
-        // });
+        const interval = setInterval(() => setTime(Date.now()), 5000);
         return () => {
-            // clearInterval(interval);
+            clearInterval(interval);
         };
-    }, [type])
+    }, [type,time])
+    
     return (<div className="Hero">
         {
         type && (
@@ -68,19 +80,27 @@ const Hero = ({type, setGenre}) => {
                 alt=""/>
             <span className="desc">
                 {
-                content.desc
+                content.desc.slice(0,200)
             } </span>
             <div className="buttons">
-                
-                    <button className="play">
-
+                    <Link to="/watch"
+                        state={
+                            {movie: movie}
+                    }>
+                        <button className="play">
                         <PlayArrow/>
-                        <span>Play</span>
-                    </button>
+                        <span className="play-text">Play</span>
+                        </button>
+                    </Link>
+                    <Link to="/info"
+                        state={
+                            {movie: movie}
+                    }>
                     <button className="more">
                         <InfoOutlined/>
                         <span>Info</span>
                     </button>
+                    </Link>
                 </div>
             </div>
         </div>

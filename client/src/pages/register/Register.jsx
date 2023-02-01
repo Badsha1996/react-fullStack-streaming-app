@@ -1,33 +1,36 @@
 import "./register.scss"
 import logo from "../../assets/logo.png"
-import {useRef, useState} from "react"
+import { useRef, useState} from "react"
+import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Register() {
+const Register = () =>{
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const emailReference = useRef()
+    const emailRef = useRef("")
 
-    const handleRegister = async (e) => {
-        e.preventDefault()
+    const handleRegister = async () => {
+
         try {
-            await axios.post("auth/register", {username, email, password})
+            await axios.post(import.meta.env.VITE_API + "auth/register", {username, email, password})
 
         } catch (error) {
             console.log(error)
         }
 
     }
-    console.log(username)
     return (
         <div className="Register">
             <div className="Register__top">
                 <div className="wrapper">
+                    <Link to={"/"}>
                     <img src={logo}
                         className="logo"
-                        alt="big logo"/>
-                    <button className="btn-login">Log In</button>
+                        alt="big logo"/></Link>
+                    <Link to={"/login"}>
+                        <button className="btn-login">Log In</button>
+                    </Link>
                 </div>
             </div>
 
@@ -42,15 +45,15 @@ function Register() {
                     !email ? (
                         <div className="input">
                             <input type="email" placeholder="Enter email"
-                                ref={emailReference}/>
+                                 ref={emailRef}/>
                             <button className="btn-register"
-                                onClick={
-                                    () => setEmail(emailReference.current.value)
-                            }>Get Started</button>
+                                onClick={(e)=>{setEmail(emailRef.current.value)}}
+                            >Get Started</button>
                         </div>
                     ) : (
                         <div className="input">
-                            <input type="text" placeholder="username"
+        
+                            <input type="text" placeholder="Enter Username" 
                                 onChange={
                                     e => setUsername(e.target.value)
                                 }/>
@@ -58,10 +61,8 @@ function Register() {
                                 onChange={
                                     e => setPassword(e.target.value)
                                 }/>
-                            <button className="btn-register"
-                                onClick={handleRegister}>sign up</button>
+                                <Link to={"/login"}><button className="btn-register" onClick={handleRegister}>sign up</button></Link>
                         </div>
-
                     )
                 } </div>
             </div>

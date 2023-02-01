@@ -1,112 +1,113 @@
 @import "../../app.scss";
+.anime-title{
+    position: relative;
+    height: 2vh;
+    font-size: 1.5rem;
+    margin: 1em;
+    color: #eee;
+    left: 1.5rem;
+    @include mobile{
+        font-size: 1.5rem;
+    }
+    @include mini-mobile{
+        font-style: 1rem;
+    }
+    
+}
 .News{
     min-height: 10rem;
     background-color: var(--primary-dark-clr);
-    margin: 0em 0em  2em 0em;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-wrap: wrap;
     color: var(--primary-white-clr);
     position: relative;
-    .genre{
-        position: absolute;
-        bottom: 1.3rem;
-        left: 0.5rem;
-    }
-    .top-icons{
-        position: absolute;
-        width: 100%;
-        background:  linear-gradient(to right,
-         rgba(0, 0, 0, 0.5),
-          rgba(0, 0, 0, 0.7));
-        display: flex;
-        justify-content: space-evenly;
-        align-items: center;
-        transition: all 0.3s ease-in-out;
-        @include mobile{
-            display: none;
-        }
-        @include tablet{
-            display: none;
-        }
-
-        .top-text{
-            font-size: 0.8rem;
-            
-        }
-    }
+    left: -1.2rem;
     .container{
-        height: 25rem;
-        width: 21%;
+        height: 16rem;
         background-color: #0000;
-        margin: 2em;
+        margin: 1em;
         position: relative;
         cursor: pointer;
         box-shadow: 0 0 0.2rem rgba($color: #696969, $alpha: 1.0);
         @include mobile{
-            height: 6.5rem;
-            width: 30%;
+            height: 42vh;
+            margin: 0.5em;
             
         }
-        @include tablet{
-            height: 20rem;
-            width: 40%;
-            margin: 1.5em;
-        }
-
         @include mini-mobile{
-            height: 14rem;
-            width: 80%;
-            margin: 1em;
+            height: 30vh;
+            width: 40vw;
+            margin-left: 8.1%;
+            
         }
-        &__video{
-            background-color: red;
-            height: 0;
-            width: 0;
-            @include mobile{
-                display: none;
-            }
+        @include big-tablet{
+            height: 42vh;
+            
+        }
+        .genre{
+            position: absolute;
+            bottom: 1.3rem;
+            left: 0.5rem;
+            z-index: 2;
+            color: white;
             @include tablet{
                 display: none;
+                
             }
         }
-        span{
+        .bottom-title{
+            position: absolute;
+            bottom: 1.3rem;
+            right: 0.5rem;
+            z-index: 2;
+            color: #eee;
+            @include mobile{
+                font-size: 0.8rem;
+            }
+            @include mini-mobile{
+                font-size: 0.7rem;
+            }
+        }
+        
+        .top-icons{
+            position: absolute;
+            width: 100%;
+            background:  linear-gradient(to right,
+             rgba(0, 0, 0, 0.5),
+              rgba(0, 0, 0, 0.7));
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            transition: all 0.3s ease-in-out; 
+            .top-text{
+                font-size: 0.6rem;
+                @include mobile{
+                display: none;
+                }
+            }
+        
+        }
+        
+        .play-icon{
             position: absolute;
             height: 0%;
-            width: 0%;
-            cursor: pointer;
-            background-color: rgba($color: black, $alpha: 0.25);
-            transition: all 0.3s ease-in-out; 
-            z-index: 5;
-            .play-icon{
-                height: 3rem;
-                width: 3rem;
-                position: relative;
-                .icon{
-                    position: absolute;
-                    transform: scale(0);
-                    height: 100%;
-                    width: 100%;
-                    top: 350%;
-                    left: 250%;
-                    transition: all 0.2s ease-in-out; 
-                }
-                @include mobile{
-                    display: none;
-                }
-                @include tablet{
-                    display: none;
-                }
-            }
-        }
-        &:hover span{
-            height: 100%;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba($color: black, $alpha: 0.2);;
+            transition: all 0.3s ease-in-out;
+            .icon{
+                position: absolute;
+                height: 0%;
+                width: 0%;
+                transform: translate(-50%,-50%);
+                transition: all 0.5s ease-in-out;
+                z-index: 2;   
+            }   
         }
-
-        &:hover .play-icon .icon{
-            transform: scale(1);
-        }
+        
 
         &::before{
             position: absolute;
@@ -115,7 +116,7 @@
             width: 0rem;
             bottom: 0;
             right: 0;
-            background-color: rgba($color: black, $alpha: 0.5);
+            background-color: rgba($color: black, $alpha: 0.3);
             transition: all 0.3s ease-in-out; 
             z-index: 2;
             
@@ -125,7 +126,17 @@
             width: 100%;
         }
         &:hover .top-icons{
-            transform: scale(0);
+            scale: 0;
+        }
+        &:hover .icon{
+            height: 20%;
+            width: 20%;
+            
+            
+        }
+        &:hover .play-icon{
+            height: 100%;
+            
         }
 
         
@@ -148,9 +159,9 @@
                 font-weight: 200;
                 font-size: 0.7rem;
             }
-            @include tablet{
+            @include big-tablet{
                 font-weight: 300;
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
             @include mini-mobile{
                 font-weight: 100;
@@ -158,17 +169,40 @@
             }
         }
     }
+    }  
+
+
+
+.video-responsive{
+    iframe{
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        height: 35vh;
+        @include tablet{
+            height: 25vh;
+        }
+    }
+    svg{
+        position: relative;
+        z-index: 3;
+    }
 }
-.anime-title{
+
+.btn-move{
     position: relative;
-    top: 1rem;
-    color: var(--primary-white-clr);
-    margin-top: 1em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 500;
-    font-size: 2rem;
-    margin-bottom: 1em;
-    
+    margin: auto;
+    margin: 1em;
+    border: none;
+    left: 45%;
+    padding: 0.5em 1em 0.5em 1em;
+    cursor: pointer;
+    transform: translate(-50%,-50%);
+    &:hover{
+        background-color: rgba(103, 103, 103, 0.822);
+        color: white;
+    }
+    @include tablet{
+        scale: 0.8;
+    }
 }

@@ -1,4 +1,4 @@
-import { Copyright, Facebook, Instagram, Twitter, YouTube } from "@material-ui/icons"
+import { Copyright,Facebook, Instagram, Twitter, YouTube} from "@mui/icons-material";
 import "./footer.scss"
 
 const Footer = () => {
@@ -7,6 +7,7 @@ const Footer = () => {
     <hr />
     <div className="Footer__container">
         <div className="icons">
+            
             <Twitter className="icon"/>
             <Facebook className="icon"/>
             <Instagram className="icon"/>

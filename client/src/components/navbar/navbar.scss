@@ -44,12 +44,18 @@
                 object-fit: cover;
                 cursor: pointer;
             }
+            span{
+                @include mini-mobile{
+                    display: none;
+                }
+            }
             .icon{
                 margin: 0em 0.8em;
                 cursor: pointer;
                 @include mini-mobile{
                     display: none;
                 }
+                
             }
 
             .profile{
@@ -57,10 +63,15 @@
                     display: none;
                     background-color: var(--primary-dark-clr);
                     border-radius: 0.5rem;
+
                 }
                 span{
                     padding: 0.8em;
                     cursor: pointer;
+                    &:hover{
+                        background-color: rgb(81, 81, 81);
+                        border-radius: 0.5rem;
+                    }
                 }
 
                 &:hover{

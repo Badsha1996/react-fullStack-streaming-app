@@ -3,22 +3,26 @@
 .Watch{
     background-color: var(--primary-dark-clr);
     position: relative;
-    .video-container{
-        height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    .video{
         position: relative;
-        
-        .video{
-            width: 90%;
-            height: 90%;
-            position: relative;
-            border-radius: 1rem;
-            top: 3.5rem;
-            left: 4.5rem;
-        }
+        scale: 0.9;
+        max-width: 90vw;
+        width: 100vw;
+        height: auto;
+        margin: 0 2em 0 2em;
+        border-radius: 1rem;
+        align-self: center;
+        align-content: center;
     }
+  
     
     
     .info-container{
+      position: relative;
+      margin-top: 5em;
         .container {
             color: white;
             background-color: var(--primary-dark-clr);
@@ -69,8 +73,6 @@
     }
     .back{
       position: absolute;
-      display: flex;
-      align-items: center;
       top: 1rem;
       left: 2rem;
       color: var(--primary-white-clr);

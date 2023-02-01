@@ -21,6 +21,7 @@
         transition: all 0.3s;
         &.clicked {
             background-color: transparent;
+            
         }
         &::before,
         &::after {
@@ -42,24 +43,36 @@
                 top: 0;
                 transform: rotate(-135deg);
                 
+                
             }
+            
 
         }
 
         &::after {
             top: 0.6rem;
             transform: rotate(0);
+            
 
         }
 
         &.clicked::before {
             top: 0;
             transform: rotate(-135deg);
+            @include big-tablet{
+                position: relative;
+                transform: rotate(180deg);
+            }
         }
 
         &.clicked::after {
             top: 0;
             transform: rotate(135deg);
+            @include big-tablet{
+                
+                transform: rotate(180deg);
+            }
+            
         }
 
 
@@ -68,8 +81,12 @@
         top: 0;
         &.clicked {
             top: -0.7rem;
-            
+
         }
+        @include big-tablet{
+            top: -0.7rem;
+        }
+        
 
     }
     &:hover &--icon::after {
@@ -78,6 +95,10 @@
             top: 0.7rem;
             
         }
+        @include big-tablet{
+            top: 0.7rem;
+        }
+        
 
     }
 
@@ -92,27 +113,26 @@
     width: 0;
     z-index: 600;
     transition: transform 0.3s;
+    overflow: hidden;
     &.clicked {
-        height: 60vh;
+        height: 52vh;
         width: 20vw;
         @include mini-mobile{
-            width: 50vw;
+            width: 80vw;
+            height: 40vh;
         }
         @include mobile{
-            width: 50vw;
+            width: 30vw;
         }
-        @include tablet{
-            width: 50vw;
-        }
+        
     }
 }
 .navigation {
-    height: 50vh;
+    height: 70vh;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 600;
-    width: 0;
     opacity: 0;
     transition: all 0.2s;
     &.clicked {
@@ -125,22 +145,14 @@
         list-style: none;
         height: 100%;
         width: 133%;
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        overflow: hidden;
-
-        top: 2rem;
+        top: 3.1rem;
         text-align: center;
         &--items {
             margin-bottom: 0.6em;
-            padding: 0 80%;
+            padding: 5% 0;
             background-color: transparent;
             &__link {
-                display: inline-block;
                 font-size: 1.2rem;
-
-                background-size: 100%;
                 font-weight: 500;
                 margin: 1em 0;
                 text-decoration: none;
@@ -151,19 +163,44 @@
                 &:active {
                     color: var(--primary-clr);
                 }
+                @include mini-mobile{
+                    font-size: 0.9rem;
+                }
 
             }
+            
             &:hover,
             &:active {
                 background-color: rgb(22, 22, 22);
                 color: lightgray;
             }
+
+            &:hover .logout{
+                background-color: green;
+            }
+            
             &:hover .list--items__link {
                 color: var(--primary-clr);
             }
             &:active {
                 background-color: rgb(22, 22, 22);
             }
+            &:hover .logout-link{
+                color: var(--primary-clr);
+            }
+            
         }
+        .logout{
+            &:hover{
+            outline: 0.10rem solid var(--primary-clr);
+            outline-offset: -0.5rem;
+            background-color: transparent;
+        }
+        }
+        
     }
+    
+    
 }
+
+

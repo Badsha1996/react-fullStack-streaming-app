@@ -25,7 +25,7 @@ const Home = ({type}) => {
 
   const getRandomLists = async() =>{
     try {
-        const res = await axios.get(`lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
+        const res = await axios.get(import.meta.env.VITE_API + `lists${type ? "?type=" + type : ""}${genre ? "&genre=" + genre : ""}`,
         {
             headers : {
                 token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
@@ -33,14 +33,13 @@ const Home = ({type}) => {
         }
         )
         setLists(res.data)
-        getAnimes(process.env.REACT_APP_SECRET_NAME)
+        getAnimes(import.meta.env.VITE_SECRET_NAME)
     } catch (error) {
         console.log(error);
     }
 }
   useEffect(()=>{
-      
-      getRandomLists()
+    getRandomLists()  
   },[type, genre]) 
   return (
     <div className="Home">
