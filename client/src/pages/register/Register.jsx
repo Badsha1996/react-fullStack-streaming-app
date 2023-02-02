@@ -1,23 +1,28 @@
 import "./register.scss"
 import logo from "../../assets/logo.png"
-import { useRef, useState} from "react"
-import { Link } from "react-router-dom";
+import {  useState} from "react"
+import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const Register = () =>{
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const emailRef = useRef("")
-
+    const [username, setUsername] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [password, setPassword] = useState(null);
+    let navigate = useNavigate()
+    
     const handleRegister = async () => {
-
-        try {
+        if (username===null || password===null || email===null){
+            console.log("wrog")
+            return `<p>Please Enter correct value</p>`
+        }else{
+            try {
             await axios.post(import.meta.env.VITE_API + "auth/register", {username, email, password})
-
+            navigate("/login")
         } catch (error) {
             console.log(error)
         }
+        }
+        
 
     }
     return (
@@ -41,18 +46,12 @@ const Register = () =>{
                     <p>
                         Register to watch unlimited Animes
                     </p>
-                    {
-                    !email ? (
+                    
                         <div className="input">
                             <input type="email" placeholder="Enter email"
-                                 ref={emailRef}/>
-                            <button className="btn-register"
-                                onClick={(e)=>{setEmail(emailRef.current.value)}}
-                            >Get Started</button>
-                        </div>
-                    ) : (
-                        <div className="input">
-        
+                                 onChange={
+                                    e => setEmail(e.target.value)
+                                }/> 
                             <input type="text" placeholder="Enter Username" 
                                 onChange={
                                     e => setUsername(e.target.value)
@@ -61,10 +60,12 @@ const Register = () =>{
                                 onChange={
                                     e => setPassword(e.target.value)
                                 }/>
-                                <Link to={"/login"}><button className="btn-register" onClick={handleRegister}>sign up</button></Link>
-                        </div>
-                    )
-                } </div>
+                                
+                            <button className="btn-register" onClick={handleRegister}>sign up</button>
+                            
+                        
+                    </div>
+                </div>
             </div>
         </div>
     )

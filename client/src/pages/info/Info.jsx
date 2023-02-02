@@ -4,11 +4,7 @@ import { useLocation, Link } from "react-router-dom";
 const Info = () => {
     const location = useLocation()
     const movie = location.state?.movie;
-    const title = movie.title.replaceAll(" ","+")
-    console.log(title)
-    fetch(`https://animechan.vercel.app/api/random/anime?title=${title}`)
-          .then((response) => response.json())
-          .then((quote) => console.log(quote));
+    
   return (
     <>
         <div className="info-main-page">
@@ -28,7 +24,7 @@ const Info = () => {
             <h3 className= "sub-title">"{movie.desc}"</h3>
             
             <Link to={"/watch"} state={{movie:movie}}>
-              <a className='btn' href="">Watch Now</a>
+              <p className='btn' >Watch Now</p>
             </Link>
             </div>
             </div>

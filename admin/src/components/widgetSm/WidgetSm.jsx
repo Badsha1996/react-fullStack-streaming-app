@@ -10,7 +10,7 @@ export default function WidgetSm() {
     const cancleToken = axios.CancelToken.source();
     const getNewUser = async ()=>{
       try {
-        const res =await axios.get("/users?new=true",{
+        const res =await axios.get(process.env.REACT_APP_API + "/users?new=true",{
           headers: {
               token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
           },CancleToken:cancleToken.token

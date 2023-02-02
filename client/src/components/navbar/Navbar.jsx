@@ -45,6 +45,10 @@ const Navbar = () => {
                         
                         <hr />
                         <span onClick={handleLogout}><Link to={"/login"}>logout</Link> </span>
+                        {user.isAdmin && (
+                        <><hr />
+                        <span ><a href="https://all-anime-admin.netlify.app/">Admin</a> </span></>)}
+
                      </div>
                 </div>
                

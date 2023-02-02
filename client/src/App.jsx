@@ -13,19 +13,13 @@ import {
 } from "react-router-dom";
 import { AuthContext } from "./authContext/AuthContext";
 import Register from "./pages/register/Register";
-import Home from "./pages/home/Home";
-import Login from "./pages/login/Login";
+import Loading from './components/loading/Loading';
 
-import Watch from "./pages/watch/Watch";
-import Setting from './pages/setting/Setting';
-import Info from './pages/info/Info';
-
-
-
-// const Login = React.lazy(() => import("./pages/login/Login"));
-// const Watch = React.lazy(() => import("./pages/watch/Watch"));
-// const Setting = React.lazy(() => import('./pages/setting/Setting'));
-// const Info = React.lazy(() => import('./pages/info/Info'));
+const Home = React.lazy(() => import("./pages/home/Home"));
+const Login = React.lazy(() => import("./pages/login/Login"));
+const Watch = React.lazy(() => import("./pages/watch/Watch"));
+const Setting = React.lazy(() => import('./pages/setting/Setting'));
+const Info = React.lazy(() => import('./pages/info/Info'));
 
 const App = () => {
   const {user} = useContext(AuthContext)
@@ -33,9 +27,22 @@ const App = () => {
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={user ? <Home type="" /> : <Register/>} />
           <Route path="/register" element={!user ? <Register /> : <Home type="" />} />
+        </Routes>
+
+        <Suspense fallback={<Loading/>}>
+        <section>
+        <Routes>
+          <Route path="/" element={user ? <Home type="" /> : <Register/>} />
           <Route path="/login" element={!user ? <Login /> : <Home type="" />} />
+        </Routes>
+        </section>
+        </Suspense>
+
+
+        <Suspense fallback={<Loading/>}>
+        <Routes>
+          
 
           {
             user && (
@@ -53,6 +60,7 @@ const App = () => {
 
 
         </Routes>
+        </Suspense>
       </div>
     </Router>
 

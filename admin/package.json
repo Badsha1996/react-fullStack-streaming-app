@@ -2,7 +2,6 @@
   "name": "allanimeadmin",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://63cd2d48434a951895ca252e--all-anime.netlify.app/api",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/data-grid": "^4.0.0-alpha.29",

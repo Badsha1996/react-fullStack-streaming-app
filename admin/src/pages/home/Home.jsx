@@ -32,7 +32,7 @@ useEffect(() => {
   const cancleToken = axios.CancelToken.source();
   const getState = async () => {
     try {
-        const res = await axios.get("/users/stats", {
+        const res = await axios.get(process.env.REACT_APP_API + "/users/stats", {
             headers: {
                 token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }

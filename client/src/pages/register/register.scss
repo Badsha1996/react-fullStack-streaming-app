@@ -8,6 +8,7 @@
                 rgba(0, 0, 0, 1) 100%),
                 url("https://images3.alphacoders.com/144/144565.jpg") no-repeat;
     background-size: cover;
+    overflow: hidden;
     &__top{
         .wrapper{
             padding: 1.25em 3.125em;
@@ -43,8 +44,10 @@
         align-items: center;
         justify-content: center;
         color: var(--primary-white-clr);
-       
+       scale: 0.8;
+       height: 100vh;
         .wrapper{
+            position: relative;
             width: 90vw;
             background-color: rgb(18, 18, 18, 0.5);
             padding: 3.125em;
@@ -53,6 +56,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            top: -5rem;
         }
         h1{
             width: 90vw;
@@ -77,33 +81,41 @@
             }
         }
         .input{
-            width: 85%;
-            background-color: var(--primary-white-clr);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-top: 1.25em;
-            height: 3.125rem;
+            height: 20rem;
+            width: 50%;
+            padding: 2em;
             border-radius: 0.3125rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            @include tablet{
+                width: 90%;
+            }
+            @include mini-mobile{
+                width: 100%;
+            }
 
             input{
-                flex: 9;
-                height: 100%;
-                border: 0.1rem solid rgba(0, 0, 0, 0.1);
-                padding: 0 0.625em;
+                border: none;
+                border-radius: 0.3125rem;
+                height: 2.5rem;
+                background-color: #eee;
+                color: black;
+                padding: 2em;
+                &::placeholder{
+                    color: gray;
+                }
             }
             .btn-register{
-                flex: 3;
-                background-color: var(--primary-clr);
-                height: 100%;
-                border: none;
-                
+                height: 2.5rem;
+                border-radius: 0.3125rem;
                 color: var(--primary-white-clr);
-                font-size: 1.19rem;
+                background-color: var(--primary-clr);
+                border: none;
+                font-size: 1.1rem;
                 cursor: pointer;
-               
+                font-weight: 500;
                 &:hover{
-                    color: black;
                     background-color: rgb(255, 52, 49);
                 }
                 @include mobile{

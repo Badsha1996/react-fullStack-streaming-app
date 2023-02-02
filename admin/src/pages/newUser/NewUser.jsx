@@ -13,7 +13,7 @@ export default function NewUser() {
   const handleRegister = async(e) =>{
     e.preventDefault();
     try {
-      await axios.post("auth/register", {username,email,password,isAdmin})
+      await axios.post(process.env.REACT_APP_API + "/auth/register", {username,email,password,isAdmin})
       history.push('/users')
   } catch (error) {
       console.log(error)

@@ -13,11 +13,12 @@ import {
     updateMovieFailure,
     updateMovieSuccess
 } from "./MovieAction"
-
+const dotenv = require("dotenv")
+dotenv.config()
 export const getMovies = async (dispatch) => {
     dispatch(getMovieStart())
     try {
-        const res = await axios.get("/movies", {
+        const res = await axios.get(process.env.REACT_APP_API + "/movies", {
             headers: {
                 token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }
@@ -34,7 +35,7 @@ export const createMovies = async (movie,dispatch) => {
     console.log("created")
     
     try {
-        const res = await axios.post("/movies",movie, {
+        const res = await axios.post(process.env.REACT_APP_API + "/movies",movie, {
             headers: {
                 token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }
@@ -50,7 +51,7 @@ export const updateMovies = async (movie,dispatch) => {
     dispatch(updateMovieStart())
     console.log("updated")
     try {
-        const res = await axios.put("/movies/" + movie._id ,movie, {
+        const res = await axios.put(process.env.REACT_APP_API + "/movies/" + movie._id ,movie, {
             headers: {
                 token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }
@@ -65,7 +66,7 @@ export const updateMovies = async (movie,dispatch) => {
 export const deleteMovies = async (id,dispatch) => {
     dispatch(deleteMovieStart())
     try {
-        await axios.delete("/movies/" + id, {
+        await axios.delete(process.env.REACT_APP_API + "/movies/" + id, {
             headers: {
                 token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
             }

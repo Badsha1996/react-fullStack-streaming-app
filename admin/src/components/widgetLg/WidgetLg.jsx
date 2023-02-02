@@ -56,10 +56,10 @@ export default function WidgetLg() {
                                         <Button type="Regular"/>
                                     </td>
                                 )
-                            } </tr>
+                            }</tr>
                         )
                     })
-                } </tbody>
+                }</tbody>
             </table>
         </div>
     );

@@ -29,5 +29,6 @@ yarn-error.log*
 
 .env
 /dist
+/build
 Procfile
 .config.js

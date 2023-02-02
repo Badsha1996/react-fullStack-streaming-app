@@ -3,6 +3,7 @@ import "./hero.scss"
 import {useEffect, useState} from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
+import Loading from "../loading/Loading";
 
 const Hero = ({type, setGenre}) => {
     const [content, setContent] = useState({img: "", imgTitle: "", desc: ""});
@@ -28,6 +29,7 @@ const Hero = ({type, setGenre}) => {
                 }
             })
             setContent(res.data[0])
+            
             content._id && getMovies() 
         } catch (error) {
             console.log(error)
@@ -82,6 +84,7 @@ const Hero = ({type, setGenre}) => {
                 {
                 content.desc.slice(0,200)
             } </span>
+            {content._id===undefined || movie._id === undefined ? <h3>Loading...</h3>:<>
             <div className="buttons">
                     <Link to="/watch"
                         state={
@@ -102,6 +105,9 @@ const Hero = ({type, setGenre}) => {
                     </button>
                     </Link>
                 </div>
+            
+            
+            </>}
             </div>
         </div>
         )
