@@ -1,5 +1,6 @@
 {
   "name": "allanime",
+  "author": "Badsha Laskar",
   "version": "0.1.0",
   "private": false,
   "dependencies": {
