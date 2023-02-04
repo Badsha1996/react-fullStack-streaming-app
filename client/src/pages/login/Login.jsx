@@ -1,23 +1,22 @@
 import "./login.scss"
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo3.png"
 import {useContext, useState} from "react"
 import {login} from "../../authContext/apiCalls"
 import {AuthContext} from "../../authContext/AuthContext"
-import { Link } from "react-router-dom"
+import { Link,useNavigate } from "react-router-dom"
 
 const Login = () => {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const {dispatch} = useContext(AuthContext)
-
+    const navigate = useNavigate()
     const handleLogin = (e) => {
         e.preventDefault()
         login({
             email,
             password
         }, dispatch)
-        
-
+        navigate("/")
     }
     return (
         <div className="Login">

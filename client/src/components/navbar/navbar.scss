@@ -27,16 +27,37 @@
             @include flexBox(center);
             &--logo{
                 position: relative;
-                height: 10rem;
-                left: -2rem;
-                @include mobile{
+                height: 3rem;
+                left: 90%;
+                transition: all 0.3s ease-in;
+                @include tablet{
                     display: none;
+                }
+                &.activeScroll{
+                    border-radius: 50%;
+                    border: 1.5px solid black;
+                    background: rgb(255, 255, 255)
                 }
             }
             
         }
         &__right{
             @include flexBox(center);
+            .search-input{
+                border: none;
+                height: 4vh;
+                padding-left: 1rem;
+                width: 27vw;
+                border-radius: 5rem;
+                transition: all 0.3s ease-in-out;
+                @include mobile{
+                    display: none;
+                }
+                &.activeScroll{
+                    width: 0;
+                    padding-left: 0rem;
+                }
+            }
             img{
                 height: 1.8rem;
                 width: 1.8rem;

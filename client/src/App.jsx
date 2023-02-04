@@ -30,13 +30,10 @@ const App = () => {
           <Route path="/register" element={!user ? <Register /> : <Home type="" />} />
         </Routes>
 
-        <Routes>
-          <Route path="/" element={user ? <Home type="" /> : <Register/>} />
-        </Routes>
-
         <Suspense fallback={<Loading/>}>
         <section>
         <Routes>
+          <Route path="/" element={user ? <Home type="" /> : <Login/>} />
           <Route path="/login" element={!user ? <Login /> : <Home type="" />} />
         </Routes>
         </section>

@@ -1,5 +1,5 @@
 import "./register.scss"
-import logo from "../../assets/logo.png"
+import logo from "../../assets/logo3.png"
 import {  useState} from "react"
 import { Link,useNavigate } from "react-router-dom";
 import axios from "axios";

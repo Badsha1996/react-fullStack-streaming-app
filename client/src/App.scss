@@ -1,8 +1,9 @@
 // Basic Chart
 :root{
-    --primary-dark-clr : hsl(0, 0%, 7%);
-    --primary-white-clr :  hsl(0, 0%, 93%);
-    --primary-clr : hsl(8, 78%, 52%); 
+    --primary-dark-clr : #282A3A;
+    --primary-white-clr :  #E5B8F4;
+    --primary-clr : #019875; 
+    --secondary-clr : #00AEAD;
 }
 ::-webkit-scrollbar {
     width: 0; 

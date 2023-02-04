@@ -19,7 +19,7 @@
            
             .logo{
                 height: 3rem;
-                transform: scale(3);
+                left: 90%;
                 cursor: pointer;
                 
             }
@@ -83,7 +83,7 @@
                     cursor: pointer;
                     font-weight: 500;
                     &:hover{
-                        background-color: rgb(255, 52, 49);
+                        background-color: var(--secondary-clr);
                     }
                 }
 
@@ -99,7 +99,7 @@
                         cursor: pointer;
                         text-align: center;
                         &:hover{
-                            color: rgb(255, 160, 158);
+                            color: grey;
                         }
                         @include mini-mobile{
                             font-size: 0.1;
