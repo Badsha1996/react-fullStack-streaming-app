@@ -16,6 +16,7 @@ const Login = () => {
             email,
             password
         }, dispatch)
+        
 
     }
     return (
@@ -42,7 +43,8 @@ const Login = () => {
                                 e => setPassword(e.target.value)
                             }/>
                         <button className="btn-login"
-                            onClick={handleLogin}>Log In</button>
+                            onClick={handleLogin}>
+                                Log In</button>
                         <span>New here? <Link to={"/register"}><b>Register to access unlimited Anime</b>
                             </Link>
                         </span>

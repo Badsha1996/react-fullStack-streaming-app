@@ -2,6 +2,7 @@ import { ArrowBackIosOutlined,  ArrowForwardIosOutlined} from "@mui/icons-materi
 import {  useRef, useState } from "react";
 import ListItem from "../listItem/ListItem";
 import "./list.scss"
+import Loading from "../loading/Loading";
 
 const List = ({list}) => {
     const [cardNumber , setCardNumber] = useState(0);
@@ -41,8 +42,11 @@ const List = ({list}) => {
         }
         
     }
+    
     return(
-        <div className="List">
+        <div className="List">{
+            !list ? (<><Loading/></>) :(<>
+            
             <span className="listTitle">{list.title}</span>
             <div className="wrapper">
                 <ArrowBackIosOutlined className="arrow Left" 
@@ -51,7 +55,8 @@ const List = ({list}) => {
                 <div className="container" ref={(listRef )}>
                     {
                         list.content.map((item, i)=>(
-                            <ListItem key={i} index={i} item={item}/>
+                            item ? <ListItem key={i} index={i} item={item}/>: <><p>Loading..</p></>
+                            
                         ))
                     }
                     
@@ -60,6 +65,10 @@ const List = ({list}) => {
                 onClick={()=>handleClick("right")}
                 />
             </div>
+            
+            </>)
+        }
+            
         </div>
     )
 }

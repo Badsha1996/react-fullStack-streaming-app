@@ -3,6 +3,7 @@ import "./listItem.scss"
 import {useEffect, useState} from "react"
 import axios from "axios"
 import {Link} from "react-router-dom"
+import Loading from "../loading/Loading";
 const ListItem = ({index, item}) => {
     const [movie, setMovie] = useState({}) // empty-obj
     
@@ -25,10 +26,12 @@ const ListItem = ({index, item}) => {
     return (
 
         <div className="ListItem">
-            <img src={
-                    movie.img 
-                }
-                alt="anime"/>
+            {!movie?(<>
+            <Loading/>
+            </>):(
+                <>
+                {movie.img?(<img src={movie.img } alt="anime"/>):(<><Loading/></>)}
+
             <div className="itemInfo">
                 <div className="icons">
                     <Link to="/watch"
@@ -61,6 +64,9 @@ const ListItem = ({index, item}) => {
                     movie.genre
                 } </div>
             </div>
+                </>
+            )}
+            
         </div>
     )
 }

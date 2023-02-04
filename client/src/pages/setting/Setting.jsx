@@ -2,14 +2,15 @@ import { useContext } from "react";
 import "./setting.scss";
 import { AuthContext } from "~/authContext/AuthContext";
 import Navbar from "~/components/navbar/Navbar";
-import { useState,useEffect } from "react";
+import { useState } from "react";
 import storage from "../../firebase"
 import { ref, uploadBytesResumable, getDownloadURL} from "firebase/storage";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { logOut } from "~/authContext/apiCalls";
 
 const Setting = () => {
-    const {user} = useContext(AuthContext)
+    const {user,dispath} = useContext(AuthContext)
     const [profilePic,setProfilePic]= useState("")
     const [random,setRandom] = useState(0)
     const [progress,setProgress] = useState(0)
@@ -69,7 +70,7 @@ const Setting = () => {
                     token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
                 }
             })
-           localStorage.clear()
+            logOut(dispath)
 
         } catch (error) {
            console.log(error)

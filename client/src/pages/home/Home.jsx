@@ -2,11 +2,12 @@ import Footer from "../../components/footer/Footer"
 import Hero from "../../components/hero/Hero"
 import List from "../../components/list/List"
 import Navbar from "../../components/navbar/Navbar"
-import News from "../../components/newAnime/NewAnime"
+import NewAnime from "../../components/newAnime/NewAnime"
 import { useEffect, useState } from "react"
 import "./home.scss"
 import AnimatedCard from "../../components/animated-card/AnimatedCard"
 import axios from "axios"
+import Loading from "~/components/loading/Loading"
 
 
 const Home = ({type}) => {
@@ -41,20 +42,26 @@ const Home = ({type}) => {
   useEffect(()=>{
     getRandomLists()  
   },[type, genre]) 
+  
   return (
     <div className="Home">
-        <Navbar/>
+        {(animeData && lists )? (<>
+            <Navbar/>
         <Hero type={type} setGenre={setGenre}/> 
         {
             lists.map((list, index)=>{
                 return(
+                    
                     <List key={index}  list={list}/>
                 )
             })
         }
-        <News animeData={animeData}/>
+        <NewAnime animeData={animeData}/>
         <AnimatedCard animeData={animeData}/>
         <Footer/>
+        </>):(<>
+        <Loading/></>)}
+        
     </div>
   )
 }
