@@ -15,7 +15,7 @@
     z-index: 1100;
     background: linear-gradient(to top, 
                                 transparent 0% ,
-                                rgba(0,0,0,0.3) 50%);
+                                rgba(0,0,0,0.3) 40%);
     &.activeScroll{
         background: var(--primary-dark-clr);
     }
@@ -48,14 +48,21 @@
                 height: 4vh;
                 padding-left: 1rem;
                 width: 27vw;
+                color: var(--primary-white-clr);
+                border: 1px solid #eeee;
                 border-radius: 5rem;
                 transition: all 0.3s ease-in-out;
+                background-color: transparent;
                 @include mobile{
                     display: none;
                 }
                 &.activeScroll{
                     width: 0;
                     padding-left: 0rem;
+                    border: none;
+                }
+                &::placeholder{
+                    color: white;
                 }
             }
             img{

@@ -36,7 +36,7 @@ const Navbar = () => {
 
 
             <div className="container__right">
-              <input type="text" className={scrolledStatus ? "search-input activeScroll" : "search-input"}/>
+              <input type="text" placeholder="Search your favourite shows" className={scrolledStatus ? "search-input activeScroll" : "search-input"}/>
                 <Search className="icon"/>
                 <span>{user.username}</span>
                 <Notifications className="icon" onClick={handleSearch}/>

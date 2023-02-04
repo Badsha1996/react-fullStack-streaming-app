@@ -1,1 +1,0 @@
-import{b as s}from"./index-04d025b3.js";const n=()=>({type:"LOGIN_START"}),c=o=>({type:"LOGIN_SUCESS",payload:o}),l=()=>({type:"LOGIN_FAILURE"}),r=()=>({type:"LOGOUT"}),y=async(o,t)=>{t(n());try{const a=await s.post({}.VITE_API+"auth/login",o);t(c(a.data))}catch{t(l())}},g=async o=>{o(r())};export{y as a,g as l};
