@@ -1,0 +1,1 @@
+import{b as n}from"./index-6a12e5f9.js";const s=()=>({type:"LOGIN_START"}),l=t=>({type:"LOGIN_SUCESS",payload:t}),c=()=>({type:"LOGIN_FAILURE"}),e=()=>({type:"LOGOUT"}),p=async(t,o)=>{o(s());try{const a=await n.post("https://all-anime.netlify.app/api/auth/login",t);o(l(a.data))}catch{o(c())}},r=async t=>{t(e())};export{p as a,r as l};
