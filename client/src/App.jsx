@@ -23,45 +23,43 @@ const App = () => {
         <>
         <Router>
         <div className="App">
-          <Routes>
-              <Route path="/register" element={!user ? <Register/>: <Home type=""/>}/>
-          </Routes>
+            <Routes>
+                <Route path="/register" element={!user ? <Register/>: <Home type=""/>}/>
+            </Routes>
 
           
-              <Routes path="/" element={<Home/>}>
-                  <Route path="/"      element={user ? <Home type=""/> : <Login/>}/>
-                  <Route path="/login" element={<Register/>}/>
-                </Routes>
+            <Routes>
+                <Route path="/"      element={user ? <Home type=""/> : <Login/>}/>
+                <Route path="/login" element={user ? <Home type=""/> : <Login/>}/>
+            </Routes>
 
                 
             
 
-        <Routes> {
-              user && (
-                  <>
-                      <Route path="/movies"element={<Home type="movie"/>}/>
-                      <Route path="/series" element={<Home type="series"/>}/>
-                  </>
-              )
-          } 
-        </Routes>
+            <Routes> {
+                    user && (
+                        <>
+                            <Route path="/movies"element={<Home type="movie"/>}/>
+                            <Route path="/series" element={<Home type="series"/>}/>
+                        </>
+                    )
+                } 
+            </Routes>
 
-      <Suspense fallback={<Loading/>}>
-          <Routes> {
-              user && (
-                  <>
-                      <Route path="/watch"   element={<Watch/>}></Route>
-                      <Route path="/setting" element={<Setting/>}></Route>
-                      <Route path="/info"    element={<Info/>}></Route>
-                  </>
-              )
-          } 
-          </Routes>
-      </Suspense>
+            <Suspense fallback={<Loading/>}>
+                <Routes> {
+                    user && (
+                        <>
+                            <Route path="/watch"   element={<Watch/>}></Route>
+                            <Route path="/setting" element={<Setting/>}></Route>
+                            <Route path="/info"    element={<Info/>}></Route>
+                        </>
+                    )
+                } 
+                </Routes>
+            </Suspense>
 
-      <Routes>
-        <Route path='*' element={<Register/>}></Route>
-      </Routes>
+           
     </div>
   </Router>
         </>
