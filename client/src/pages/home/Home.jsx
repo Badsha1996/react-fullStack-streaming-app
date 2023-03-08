@@ -46,7 +46,7 @@ const Home = ({type}) => {
   return (
     <div className="Home">
         {(animeData && lists )? (<>
-            <Navbar/>
+            <Navbar />
         <Hero type={type} setGenre={setGenre}/> 
         {
             lists.map((list, index)=>{

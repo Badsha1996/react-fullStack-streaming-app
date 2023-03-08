@@ -6,19 +6,49 @@ import HumburgerMenu from "../humburgerMenu/HumburgerMenu"
 import { AuthContext } from "../../authContext/AuthContext"
 import { logOut } from "../../authContext/apiCalls"
 import {Link } from "react-router-dom"
-
+import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
 
 const Navbar = () => {
   const [scrolledStatus, setScrollStatus] = useState(false)
   const {user, dispatch}= useContext(AuthContext)
+  const [search, setSearch] = useState("")
+  const [allMovie, setAllMovie] = useState("")
+  
+  const getMovies = async() =>{
+    try{
+      const res = await axios.get(import.meta.env.VITE_API + `movies`,{
+        Headers:{
+          token: "king " + JSON.parse(localStorage.getItem("user")).accessToken
 
+        }
+      })
+
+      console.log(res.data)
+      return res.data
+
+    }catch(err){
+      console.log(err)
+    }
+    return res.data
+  }
+ 
+ 
+  // const {status, error, data:movies} = useQuery({
+  //   queryKey:["movies"],
+  //   queryFn:()=>getMovies()
+  // })
+
+  // if(status==="loading") return <>Loading...</>
+  // if(status==="error") return <>{JSON.stringify(error)}</>
+  
   window.onscroll = () => {
     setScrollStatus(window.scrollY === 0 ? false : true)
     return ()=> (window.onscroll = null );
   }
+
   const handleLogout = () =>{
     logOut(dispatch)
-
   }
 
   const handleSearch = () =>{
@@ -36,7 +66,7 @@ const Navbar = () => {
 
 
             <div className="container__right">
-              <input type="text" placeholder="Search your favourite shows" className={scrolledStatus ? "search-input activeScroll" : "search-input"}/>
+              <input onChange={(e)=>setSearch(e.target.value)} type="text" placeholder="Search your favourite shows" className={scrolledStatus ? "search-input activeScroll" : "search-input"}/>
                 <Search className="icon"/>
                 <span>{user.username}</span>
                 <Notifications className="icon" onClick={handleSearch}/>
