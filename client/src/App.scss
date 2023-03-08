@@ -1,7 +1,7 @@
 // Basic Chart
 :root{
     --primary-dark-clr : #282A3A;
-    --primary-white-clr :  #E5B8F4;
+    --primary-white-clr :  #e9e9e9;
     --primary-clr : #019875; 
     --secondary-clr : #00AEAD;
 }
@@ -12,24 +12,6 @@ a:-webkit-any-link{
     text-decoration: none;
     color: currentColor;
 }
-
-// /* Track */
-// ::-webkit-scrollbar-track {
-//     color: transparent;
-//     visibility: hidden;
-//     background: rgba(255, 255, 255, 0.3);
-// }
-
-// /* Handle */
-// ::-webkit-scrollbar-thumb {
-//     border-radius: 50rem;
-//     background: rgba(0, 0, 0, 0.178);
-// }
-
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//     background: grey;
-// }
 
 
 // FOR TABLET

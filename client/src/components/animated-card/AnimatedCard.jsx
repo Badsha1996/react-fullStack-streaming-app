@@ -13,7 +13,7 @@ const AnimatedCard = ({ animeData }) => {
                             return (
                                 <div className="cardBox" key={index}>
                                     <div className="card">
-                                        <img src={anime.images.jpg.image_url} alt="card" className="card-img" />
+                                        <img src={anime.images.jpg.image_url} loading="eager" alt="card" className="card-img" />
 
                                         <div className="content">
                                             <h3 className="h3">#{anime.popularity}</h3>

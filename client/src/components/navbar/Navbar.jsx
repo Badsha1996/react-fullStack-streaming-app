@@ -46,8 +46,6 @@ const Navbar = () => {
                      <ArrowDropDown className="icon"/>
                      <div className="options">
                       <span><Link to={"/setting"}>settings</Link></span>
-                      
-                        
                         <hr />
                         <span onClick={handleLogout}><Link to={"/login"}>logout</Link> </span>
                         {user.isAdmin && (
